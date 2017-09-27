@@ -12,7 +12,7 @@ class ActivitieInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("oi")
         // Do any additional setup after loading the view.
     }
 
