@@ -8,8 +8,9 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
+class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate  {
 
   // Outlets
   
@@ -19,7 +20,10 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   let icones: [String] = ["red", "lightBlue", "yellow", "lightGreen"]
   
+  // constante pra usar na abertura do mapa
+  let locationManager = CLLocationManager()
   
+ 
   // View Did Load ()
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,9 +31,32 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     selectIcons.delegate = self
     selectIcons.dataSource = self
     
+    // Pede pra saber a localização do usuário no foreground e background
+    locationManager.requestAlwaysAuthorization()
+    
+    if CLLocationManager.locationServicesEnabled() {
+      locationManager.delegate = self
+      locationManager.desiredAccuracy = kCLLocationAccuracyBest
+      locationManager.startUpdatingLocation()
+    }
   }
 
+  // Dá o zoom na localização do usuário
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    let locationNow = locations[0]
+    
+    let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+    
+    let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow.coordinate.latitude, locationNow.coordinate.longitude)
+    
+    let mapVisualArea: MKCoordinateRegion = MKCoordinateRegionMake(userLocation, zoom)
+    
+    mapFirst.setRegion(mapVisualArea, animated: true)
 
+    self.mapFirst.showsUserLocation = true
+  }
+  
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
