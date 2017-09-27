@@ -152,18 +152,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome do Evento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QZg-Y5-Yfs">
-                                <rect key="frame" x="24" y="37" width="235" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="nomeEvento:" destination="ffw-fY-jnR" eventType="touchDragInside" id="MSz-DX-pgF"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Porque vale a pena paricipar?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8I-1H-geZ">
-                                <rect key="frame" x="24" y="107" width="235" height="30"/>
+                                <rect key="frame" x="24" y="127" width="235" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -177,7 +167,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="My6-dx-1od">
-                                <rect key="frame" x="24" y="189" width="163" height="97"/>
+                                <rect key="frame" x="24" y="198" width="139" height="97"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="528053878.61351401">
                                     <!--2017-09-25 17:37:58 +0000-->
@@ -187,20 +177,36 @@
                                 <rect key="frame" x="24" y="341" width="327" height="306"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-P6-SKn">
-                                <rect key="frame" x="281" y="51" width="70" height="70"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-P6-SKn">
+                                <rect key="frame" x="262" y="74" width="109" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Icone"/>
+                                <state key="normal" image="dance-instructor.png"/>
                                 <connections>
                                     <action selector="tag:" destination="ffw-fY-jnR" eventType="touchUpInside" id="VmQ-FA-bZe"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehY-ef-hmL">
+                                <rect key="frame" x="0.0" y="-1" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.41854201492436349" green="0.89486833756345174" blue="0.51502903890776808" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome do Evento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QZg-Y5-Yfs">
+                                <rect key="frame" x="24" y="71" width="235" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nomeEvento:" destination="ffw-fY-jnR" eventType="touchDragInside" id="MSz-DX-pgF"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="dataPicker" destination="My6-dx-1od" id="bbK-48-NPV"/>
                         <outlet property="descricao" destination="y8I-1H-geZ" id="59W-aX-oPG"/>
+                        <outlet property="mapaLocalizacao" destination="zYB-xV-z3D" id="Yon-Pl-vjY"/>
                         <outlet property="nomeEvento" destination="QZg-Y5-Yfs" id="ZN7-xG-R1m"/>
                     </connections>
                 </viewController>
@@ -227,4 +233,7 @@
             <point key="canvasLocation" x="150" y="137"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dance-instructor.png" width="64" height="64"/>
+    </resources>
 </document>
