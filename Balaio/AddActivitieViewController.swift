@@ -21,7 +21,15 @@ class AddActivitieViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var nomeEvento: UITextField!
 
+    @IBOutlet weak var descricao: UITextField!
+    
+    @IBAction func tag(_ sender: UIButton) {
+    }
+    
+    @IBOutlet weak var dataPicker: UIDatePicker!
+    
     /*
     // MARK: - Navigation
 
