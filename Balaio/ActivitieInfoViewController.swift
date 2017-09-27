@@ -9,6 +9,12 @@
 import UIKit
 
 class ActivitieInfoViewController: UIViewController {
+  
+  @IBOutlet weak var img: UIImageView!
+  @IBOutlet weak var dadosEvento: UIStackView!
+  @IBOutlet weak var descriEvento: UITableView!
+  @IBOutlet weak var comentarios: UILabel!
+  @IBOutlet weak var AddComentarios: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
