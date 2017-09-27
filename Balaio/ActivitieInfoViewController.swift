@@ -8,39 +8,47 @@
 
 import UIKit
 
-class ActivitieInfoViewController: UIViewController {
+class ActivitieInfoViewController: UIViewController, UITextFieldDelegate {
   
   @IBOutlet weak var img: UIImageView!
   @IBOutlet weak var dadosEvento: UIStackView!
   @IBOutlet weak var descriEvento: UITableView!
   @IBOutlet weak var comentarios: UILabel!
   @IBOutlet weak var AddComentarios: UITextField!
-
+  
+  //var listEventos: [eventos] = []
+  
+  // Criar func para uma stackview: que guarde nome e horário de termino
+  // Table view com descrição do evento
+  // Criar func para comentarios;
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        // Do any additional setup after loading the view.
+      // Protocolo StackView de Dados do Evento
+      func dadosEventoStackview (_ nomeEvento:String , horarioTermino: Int , descricao:String) -> Any {
+        return dadosEvento
+      }
+      // Protocolo TableView de Descrição do Evento
+      func descricaoTableview (_ descricao:String) -> Any {
+        return descriEvento
+      }
+      
+      // TextField de COmentarios
+      AddComentarios.delegate = self
+      func comentariosTexfield(_ textField : UITextField) -> Any {
+        return comentarios
     }
 
-    override func didReceiveMemoryWarning() {
+    func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  
-  
-  // Mostra a barra de navegação - volta pra primeira tela
-  override func viewWillAppear(_ animated: Bool) {
-    self.navigationController?.isNavigationBarHidden = false
-  }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+      
+      // Mostra a barra de navegação - volta pra primeira tela
+    func viewWillAppear(_ animated: Bool) {
+      self.navigationController?.isNavigationBarHidden = false
     }
-    */
-
+  }
 }

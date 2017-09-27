@@ -282,9 +282,7 @@
                         <outlet property="comentarios" destination="OuH-Tt-vKW" id="gvz-mU-g5s"/>
                         <outlet property="dadosEvento" destination="dOq-Wq-m5e" id="RHV-59-jBz"/>
                         <outlet property="dadosEventos" destination="dOq-Wq-m5e" id="ti9-MK-i6w"/>
-                        <outlet property="descEvent" destination="3MU-af-GqH" id="j4M-HW-ma5"/>
                         <outlet property="descriEvento" destination="3MU-af-GqH" id="g2I-uW-dht"/>
-                        <outlet property="descriEventos" destination="3MU-af-GqH" id="uIP-5M-5ty"/>
                         <outlet property="img" destination="J9o-Ni-T7z" id="Ihs-62-UYv"/>
                     </connections>
                 </viewController>
