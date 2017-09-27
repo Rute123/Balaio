@@ -48,6 +48,16 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
         popview.isHidden = false
     }
     
+    //POPUP
+    @IBAction func celebrar(_ sender: UIButton) {
+    }
+    @IBAction func contemplar(_ sender: UIButton) {
+    }
+    @IBAction func colaborar(_ sender: UIButton) {
+    }
+    @IBAction func praticar(_ sender: UIButton) {
+    }
+    
     
     @IBOutlet weak var dataPicker: UIDatePicker!
     
@@ -56,21 +66,6 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     
     @IBOutlet weak var mapaLocalizacao: MKMapView!
     
-
-    var locationManager = CLLocationManager()
-
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            mapaLocalizacao.showsUserLocation = true
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        checkLocationAuthorizationStatus()
-    }
     
     /*
     // MARK: - Navigation

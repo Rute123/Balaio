@@ -141,7 +141,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-yo-bts">
                                 <rect key="frame" x="128" y="580" width="118" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="brown"/>
+                                <state key="normal" title="Enviar">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="enviar:" destination="ffw-fY-jnR" eventType="touchUpInside" id="RrH-ri-e1Z"/>
                                 </connections>
@@ -149,7 +151,7 @@
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-P6-SKn">
                                 <rect key="frame" x="277" y="73" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="TAG" backgroundImage="brown">
+                                <state key="normal" title="TAG">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -157,7 +159,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8PT-Zf-qHy" customClass="PopView" customModule="Balaio" customModuleProvider="target">
-                                <rect key="frame" x="24" y="71" width="240" height="272"/>
+                                <rect key="frame" x="24" y="71" width="240" height="269"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG6-le-SBc">
@@ -165,6 +167,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="red"/>
                                         <connections>
+                                            <action selector="celebrar:" destination="ffw-fY-jnR" eventType="touchUpInside" id="mZN-6i-7UO"/>
                                             <action selector="selectTag:" destination="ffw-fY-jnR" eventType="touchUpInside" id="2c0-VJ-3Xu"/>
                                             <action selector="selectTag:forEvent:" destination="ffw-fY-jnR" eventType="touchUpInside" id="lGT-1g-T1r"/>
                                         </connections>
@@ -173,11 +176,17 @@
                                         <rect key="frame" x="10" y="144" width="51" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="yellow"/>
+                                        <connections>
+                                            <action selector="colaborar:" destination="ffw-fY-jnR" eventType="touchUpInside" id="XxZ-6Y-Sox"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkK-5z-L7F">
                                         <rect key="frame" x="10" y="213" width="51" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="lightGreen"/>
+                                        <connections>
+                                            <action selector="praticar:" destination="ffw-fY-jnR" eventType="touchUpInside" id="UnS-JL-4zj"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Celebrar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qv-ev-xVt">
                                         <rect key="frame" x="77" y="19" width="155" height="21"/>
@@ -211,6 +220,9 @@
                                         <rect key="frame" x="10" y="74" width="51" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="lightBlue"/>
+                                        <connections>
+                                            <action selector="contemplar:" destination="ffw-fY-jnR" eventType="touchUpInside" id="Gdi-ep-bkp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -362,7 +374,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="brown" width="64" height="64"/>
         <image name="lightBlue" width="64" height="64"/>
         <image name="lightGreen" width="64" height="64"/>
         <image name="red" width="64" height="64"/>
