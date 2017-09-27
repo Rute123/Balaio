@@ -12,7 +12,7 @@ class AddActivitieViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      print("oi aqui")
         // Do any additional setup after loading the view.
     }
 
