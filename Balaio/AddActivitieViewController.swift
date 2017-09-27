@@ -13,7 +13,9 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        nomeEvento.delegate = self
+        descricao.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -29,6 +31,37 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   }
 
 
+    
+    func textFieldShouldReturn(_ textField : UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+        
+    @IBOutlet weak var nomeEvento: UITextField!
+    
+    @IBOutlet weak var descricao: UITextField!
+    
+    @IBAction func tag(_ sender: UIButton) {
+    }
+    
+    @IBOutlet weak var dataPicker: UIDatePicker!
+    
+    @IBOutlet weak var mapaLocalizacao: MKMapView!
+    
+    var locationManager = CLLocationManager()
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapaLocalizacao.showsUserLocation = true
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationAuthorizationStatus()
+    }
+    
     /*
     // MARK: - Navigation
 
