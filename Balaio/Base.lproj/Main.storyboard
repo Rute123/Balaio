@@ -6,15 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--First View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="SemNome" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="Balaio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,16 +21,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agp-uI-hz5">
-                                <rect key="frame" x="172.5" y="627" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agp-uI-hz5">
+                                <rect key="frame" x="172" y="20" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addActivitieButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9lF-uB-jJG"/>
                                     <segue destination="ffw-fY-jnR" kind="show" id="Htb-CE-6Z7"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DP0-sa-rw6">
-                                <rect key="frame" x="37" y="90" width="300" height="147"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74S-te-dm7">
+                                <rect key="frame" x="164" y="629" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reload"/>
+                                <connections>
+                                    <action selector="reloadButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vta-am-Hhs"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ld9-GQ-SRj">
+                                <rect key="frame" x="0.0" y="247" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DP0-sa-rw6">
+                                <rect key="frame" x="37" y="75" width="300" height="147"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XEV-ku-CWE">
                                     <size key="itemSize" width="50" height="50"/>
@@ -41,14 +53,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="iconCell" id="irH-dB-vEi" customClass="SelectIconsCollectionViewCell" customModule="SemNome" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="iconCell" id="irH-dB-vEi" customClass="SelectIconsCollectionViewCell" customModule="Balaio" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-FY-iUz">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-FY-iUz" userLabel="icon Image Filter">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
                                             </subviews>
@@ -60,40 +72,13 @@
                                             <constraint firstItem="UUE-FY-iUz" firstAttribute="width" secondItem="irH-dB-vEi" secondAttribute="width" id="v4w-hk-afk"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="IconImageFilter" destination="UUE-FY-iUz" id="BTy-BN-lMK"/>
+                                            <outlet property="iconImageFilter" destination="UUE-FY-iUz" id="sGo-c5-IIR"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74S-te-dm7">
-                                <rect key="frame" x="164" y="40" width="47" height="30"/>
-                                <state key="normal" title="Reload"/>
-                                <connections>
-                                    <action selector="reloadButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vta-am-Hhs"/>
-                                </connections>
-                            </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ld9-GQ-SRj">
-                                <rect key="frame" x="0.0" y="247" width="375" height="375"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Ld9-GQ-SRj" secondAttribute="height" multiplier="1:1" id="pWm-vS-kGm"/>
-                                </constraints>
-                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Agp-uI-hz5" firstAttribute="top" secondItem="Ld9-GQ-SRj" secondAttribute="bottom" constant="5" id="3f1-th-1yR"/>
-                            <constraint firstItem="Ld9-GQ-SRj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5XP-ox-W2O"/>
-                            <constraint firstItem="DP0-sa-rw6" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="E3Z-iu-TZP"/>
-                            <constraint firstItem="DP0-sa-rw6" firstAttribute="top" secondItem="74S-te-dm7" secondAttribute="bottom" constant="20" id="Kwv-ZS-rKC"/>
-                            <constraint firstItem="Agp-uI-hz5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OLL-3f-SaW"/>
-                            <constraint firstItem="DP0-sa-rw6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ozr-w2-N8A"/>
-                            <constraint firstItem="74S-te-dm7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="Tzj-ga-G38"/>
-                            <constraint firstItem="Ld9-GQ-SRj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="dZk-M8-JQI"/>
-                            <constraint firstAttribute="trailing" secondItem="Ld9-GQ-SRj" secondAttribute="trailing" id="lYX-2W-4Pm"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Agp-uI-hz5" secondAttribute="bottom" constant="10" id="onJ-kB-C7d"/>
-                            <constraint firstItem="74S-te-dm7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tCe-Bm-QJL"/>
-                            <constraint firstItem="Ld9-GQ-SRj" firstAttribute="top" secondItem="DP0-sa-rw6" secondAttribute="bottom" constant="10" id="vaf-WV-Bww"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B6G-YU-0Hr"/>
                     <connections>
@@ -108,7 +93,7 @@
         <!--Activitie Info View Controller-->
         <scene sceneID="yFa-5f-AIZ">
             <objects>
-                <viewController id="zA9-SE-lNI" customClass="ActivitieInfoViewController" customModule="SemNome" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zA9-SE-lNI" customClass="ActivitieInfoViewController" customModule="Balaio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6p6-zL-b1S"/>
                         <viewControllerLayoutGuide type="bottom" id="Rif-44-Y5z"/>
@@ -143,7 +128,7 @@
         <!--Add Activitie View Controller-->
         <scene sceneID="mLX-mY-13m">
             <objects>
-                <viewController id="ffw-fY-jnR" customClass="AddActivitieViewController" customModule="SemNome" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ffw-fY-jnR" customClass="AddActivitieViewController" customModule="Balaio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2u3-3I-0Ln"/>
                         <viewControllerLayoutGuide type="bottom" id="80d-uC-Aj0"/>

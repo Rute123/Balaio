@@ -11,7 +11,7 @@ import UIKit
 // Collection view dos ícones, pra o filtro de busca por atividades
 class SelectIconsCollectionViewCell: UICollectionViewCell {
 
-  @IBOutlet weak var IconImageFilter: UIImageView!
+  @IBOutlet weak var iconImageFilter: UIImageView!
   
   
 }

@@ -12,7 +12,7 @@ class AddActivitieViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      print("oi aqui")
+      
         // Do any additional setup after loading the view.
     }
 
@@ -20,7 +20,13 @@ class AddActivitieViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+  
+  
+  // Mostra a barra de navegação - volta pra primeira tela
+  override func viewWillAppear(_ animated: Bool) {
+    self.navigationController?.isNavigationBarHidden = false
+  }
+
 
     /*
     // MARK: - Navigation
