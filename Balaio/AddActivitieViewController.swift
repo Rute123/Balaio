@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MapKit
 
-class AddActivitieViewController: UIViewController {
+class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
