@@ -11,6 +11,8 @@ import MapKit
 
 class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
 
+    @IBOutlet weak var popview: PopView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nomeEvento.delegate = self
@@ -28,10 +30,11 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   // Mostra a barra de navegação - volta pra primeira tela
   override func viewWillAppear(_ animated: Bool) {
     self.navigationController?.isNavigationBarHidden = false
+    popview.isHidden = true
   }
 
 
-    
+    //Retorna o teclado ao clicar em Return
     func textFieldShouldReturn(_ textField : UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -42,13 +45,20 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     @IBOutlet weak var descricao: UITextField!
     
     @IBAction func tag(_ sender: UIButton) {
+        popview.isHidden = false
     }
+    
     
     @IBOutlet weak var dataPicker: UIDatePicker!
     
+    @IBAction func enviar(_ sender: UIButton) {
+    }
+    
     @IBOutlet weak var mapaLocalizacao: MKMapView!
     
+
     var locationManager = CLLocationManager()
+
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapaLocalizacao.showsUserLocation = true
