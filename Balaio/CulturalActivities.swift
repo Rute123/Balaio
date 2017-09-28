@@ -23,7 +23,7 @@ class CulturalActivities {
   var shortComment: String
   var likes: Float = 0
   var activitieIsVisible: Bool = true
-  var activitieExists: Bool = true
+  var activitieExists: Bool = true     // não ta indo
   
   // init com tudo
   init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String, likes: Float, activitieIsVisible: Bool, activitieExists: Bool) {
