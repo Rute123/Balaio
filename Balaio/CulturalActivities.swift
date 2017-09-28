@@ -21,14 +21,12 @@ class CulturalActivities {
   var endsAt: String // date format
   var tag: Tag
   var shortComment: String
-  var likes: Float
-  var activitieIsVisible: Bool
-  var activitieExists: Bool
-  var text: String
+  var likes: Float = 0
+  var activitieIsVisible: Bool = true
+  var activitieExists: Bool = true     // não ta indo
   
-		
-  
-  init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String, likes: Float, activitieIsVisible: Bool, activitieExists: Bool, text: String) {
+  // init com tudo
+  init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String, likes: Float, activitieIsVisible: Bool, activitieExists: Bool) {
     
     self.activitiesName = activitiesName
     self.location = location
@@ -38,7 +36,6 @@ class CulturalActivities {
     self.likes = likes
     self.activitieIsVisible = activitieIsVisible
     self.activitieExists = activitieExists
-    self.text = text
   }
   
   // init só com os parâmetros que o usuário adiciona
