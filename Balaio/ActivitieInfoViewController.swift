@@ -10,11 +10,12 @@ import UIKit
 
 class ActivitieInfoViewController: UIViewController {
   
-  //Outlets
   
-  @IBOutlet weak var img: UIImageView!
-  @IBOutlet weak var dadosEvento: UIStackView!
-  @IBOutlet weak var descriEvento: UITableView!
+  //Outlets
+
+  @IBOutlet weak var detalheEventoTableview: UITableView!
+  
+      var listOfActivities: [CulturalActivities] = []
   
   //ACTIONS
   
@@ -22,24 +23,31 @@ class ActivitieInfoViewController: UIViewController {
     
   }
   
-  
-  // Criar func para uma stackview: que guarde nome e horário de termino
-  // Table view com descrição do evento
-
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    
   }
   
-    // StackView de Dados do Evento
+  //MARK: protocolo UITableViewDelegate
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! ActivitiesTableviewCell
     
-    func dadosEventoStackview (_ nomeEvento:String , horarioTermino: Int) -> Any {
-      return dadosEvento
-    }
+    cell.nameActivities.text = listOfActivities[indexPath.row].activitiesName
+    cell.hourActivities.text = listOfActivities[indexPath.row].endsAt
+    //cell.tagImageActivities.image = listOfActivities[indexPath.row].tagIconColor
     
-    // TableView de Descrição do Evento
+    cell.descriptionActivities.text = listOfActivities[indexPath.row].text
+    
+    cell.textActivities.text = listOfActivities[indexPath.row].shortComment
+    
+    //cell.img.layer.cornerRadius = 30
+    //cell.img.layer.masksToBounds = true
+    
+    return cell
+  }
+}
+
+    /*
+    // Descrição do Evento
     
     func descricaoTableview (_ descricao:String) -> Any {
       return descriEvento
@@ -85,6 +93,4 @@ class ActivitieInfoViewController: UIViewController {
  textField.resignFirstResponder()
  return true
  }
- */
-
-
+ */*/

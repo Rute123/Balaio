@@ -16,14 +16,17 @@ class CulturalActivities {
   
   var activitiesName: String
   var location: CLLocationCoordinate2D
-  var endsAt: Date // date format
+  var endsAt: String // date format
   var tag: Tag
   var shortComment: String
   var likes: Float
   var activitieIsVisible: Bool
   var activitieExists: Bool
+  var text: String
   
-  init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: Date, tag: Tag, shortComment: String, likes: Float, activitieIsVisible: Bool, activitieExists: Bool) {
+		
+  
+  init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String, likes: Float, activitieIsVisible: Bool, activitieExists: Bool, text: String) {
     
     self.activitiesName = activitiesName
     self.location = location
@@ -33,6 +36,7 @@ class CulturalActivities {
     self.likes = likes
     self.activitieIsVisible = activitieIsVisible
     self.activitieExists = activitieExists
+    self.text = text
   }
   
 }
