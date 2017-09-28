@@ -10,20 +10,23 @@ import Foundation
 import UIKit
 import CoreLocation
 
+
+
 // Classe pra as atividades culturais
 // Teremos um array de CulturalActivities local (pra simular o firebased/cloudKit)
 class CulturalActivities {
   
   var activitiesName: String
   var location: CLLocationCoordinate2D
-  var endsAt: Date // date format
+  var endsAt: String      // Date // date formatt (acaba de 18h40)
   var tag: Tag
   var shortComment: String
-  var likes: Float
-  var activitieIsVisible: Bool
-  var activitieExists: Bool
+  var likes: Float = 0
+  var activitieIsVisible: Bool = true
+  var activitieExists: Bool = true
   
-  init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: Date, tag: Tag, shortComment: String, likes: Float, activitieIsVisible: Bool, activitieExists: Bool) {
+  // init com tudo
+  init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String, likes: Float, activitieIsVisible: Bool, activitieExists: Bool) {
     
     self.activitiesName = activitiesName
     self.location = location
@@ -35,4 +38,26 @@ class CulturalActivities {
     self.activitieExists = activitieExists
   }
   
+  // init só com os parâmetros que o usuário adiciona
+  init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String) {
+    
+    self.activitiesName = activitiesName
+    self.location = location
+    self.endsAt = endsAt
+    self.tag = tag
+    self.shortComment = shortComment
+  }
+  
+//  // Date Formatt
+//  func string(from date: Date) -> String {
+//  
+//  }
+
+
+  
+  
+  
 }
+
+
+
