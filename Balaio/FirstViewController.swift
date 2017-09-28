@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
 class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate  {
 
   // Outlets
@@ -18,7 +19,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   @IBOutlet weak var mapFirst: MKMapView!
   
-  let icones: [String] = ["red", "lightBlue", "yellow", "lightGreen"]
+  let icones: [String] = ["red", "darkBlue", "orange", "darkGreen"]
   
   // constante pra usar na abertura do mapa
   let locationManager = CLLocationManager()
@@ -85,7 +86,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "iconCell", for: indexPath) as! SelectIconsCollectionViewCell
-    print(indexPath)
     cell.iconImageFilter.image = UIImage(named: icones[indexPath.row])
     return cell
   }

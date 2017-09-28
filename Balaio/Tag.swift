@@ -12,10 +12,20 @@ import UIKit
 // Classe pra as tags (ícones), com um nome, o ícone e o ícone em escala de cinza
 class Tag {
   var tagName: String
-  var tagIconColor: UIImageView
-  var tagIconGrayScale: UIImageView
+  var tagIconColor: UIImage
+  var tagIconGrayScale: UIImage
+  var tagDescription: String = ""
   
-  init (tagName: String, tagIconColor: UIImageView, tagIconGrayScale: UIImageView) {
+  // init com a descrição
+  init (tagName: String, tagIconColor: UIImage, tagIconGrayScale: UIImage, tagDescription: String) {
+    self.tagName = tagName
+    self.tagIconColor = tagIconColor
+    self.tagIconGrayScale = tagIconGrayScale
+    self.tagDescription = tagDescription
+  }
+  
+  // init sem a descrição (ela é um string vazio)
+  init (tagName: String, tagIconColor: UIImage, tagIconGrayScale: UIImage) {
     self.tagName = tagName
     self.tagIconColor = tagIconColor
     self.tagIconGrayScale = tagIconGrayScale

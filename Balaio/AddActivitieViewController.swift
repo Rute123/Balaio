@@ -60,7 +60,11 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     
     
     @IBOutlet weak var dataPicker: UIDatePicker!
+  
     
+  
+  
+  
     @IBAction func enviar(_ sender: UIButton) {
     }
     

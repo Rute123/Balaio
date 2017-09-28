@@ -18,6 +18,7 @@
 		1884E5E91F7D7B9900ADA37F /* PopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884E5E81F7D7B9900ADA37F /* PopView.swift */; };
 		1884E5EB1F7D7C6400ADA37F /* CulturalActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884E5EA1F7D7C6400ADA37F /* CulturalActivities.swift */; };
 		1884E5ED1F7D7C8400ADA37F /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884E5EC1F7D7C8400ADA37F /* Tag.swift */; };
+		1884E5EF1F7D862800ADA37F /* bancoDeDados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884E5EE1F7D862800ADA37F /* bancoDeDados.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		1884E5E81F7D7B9900ADA37F /* PopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopView.swift; sourceTree = "<group>"; };
 		1884E5EA1F7D7C6400ADA37F /* CulturalActivities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CulturalActivities.swift; sourceTree = "<group>"; };
 		1884E5EC1F7D7C8400ADA37F /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		1884E5EE1F7D862800ADA37F /* bancoDeDados.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bancoDeDados.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,18 +68,19 @@
 		181565E81F7AC9340099C9C0 /* Balaio */ = {
 			isa = PBXGroup;
 			children = (
-				1884E5E81F7D7B9900ADA37F /* PopView.swift */,
-				181565FF1F7AC9C90099C9C0 /* AddActivitieViewController.swift */,
-				181565FE1F7AC9C90099C9C0 /* ActivitieInfoViewController.swift */,
+				181565E91F7AC9340099C9C0 /* AppDelegate.swift */,
 				181566001F7AC9C90099C9C0 /* FirstViewController.swift */,
 				181566011F7AC9C90099C9C0 /* SelectIconsCollectionViewCell.swift */,
+				181565FE1F7AC9C90099C9C0 /* ActivitieInfoViewController.swift */,
+				1884E5E81F7D7B9900ADA37F /* PopView.swift */,
+				181565FF1F7AC9C90099C9C0 /* AddActivitieViewController.swift */,
+				1884E5EC1F7D7C8400ADA37F /* Tag.swift */,
+				1884E5EE1F7D862800ADA37F /* bancoDeDados.swift */,
+				1884E5EA1F7D7C6400ADA37F /* CulturalActivities.swift */,
 				181565FB1F7AC9660099C9C0 /* Main.storyboard */,
-				181565E91F7AC9340099C9C0 /* AppDelegate.swift */,
 				181565F01F7AC9340099C9C0 /* Assets.xcassets */,
 				181565F21F7AC9340099C9C0 /* LaunchScreen.storyboard */,
 				181565F51F7AC9340099C9C0 /* Info.plist */,
-				1884E5EA1F7D7C6400ADA37F /* CulturalActivities.swift */,
-				1884E5EC1F7D7C8400ADA37F /* Tag.swift */,
 			);
 			path = Balaio;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				181566041F7AC9C90099C9C0 /* FirstViewController.swift in Sources */,
 				181566051F7AC9C90099C9C0 /* SelectIconsCollectionViewCell.swift in Sources */,
 				181565EA1F7AC9340099C9C0 /* AppDelegate.swift in Sources */,
+				1884E5EF1F7D862800ADA37F /* bancoDeDados.swift in Sources */,
 				181566031F7AC9C90099C9C0 /* AddActivitieViewController.swift in Sources */,
 				1884E5EB1F7D7C6400ADA37F /* CulturalActivities.swift in Sources */,
 				1884E5E91F7D7B9900ADA37F /* PopView.swift in Sources */,
