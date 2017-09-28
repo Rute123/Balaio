@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hi3-h9-IAw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jfa-Kw-F57">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -124,9 +124,12 @@
                                     <!--2017-09-25 17:37:58 +0000-->
                                 </date>
                             </datePicker>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zYB-xV-z3D">
-                                <rect key="frame" x="24" y="341" width="327" height="225"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zYB-xV-z3D">
+                                <rect key="frame" x="24" y="368" width="327" height="225"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="327" id="2ux-qZ-qf9"/>
+                                    <constraint firstAttribute="height" constant="225" id="pSC-cU-64J"/>
+                                </constraints>
                             </mapView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome do Evento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QZg-Y5-Yfs">
                                 <rect key="frame" x="24" y="71" width="235" height="30"/>
@@ -138,9 +141,8 @@
                                     <action selector="nomeEvento:" destination="ffw-fY-jnR" eventType="touchDragInside" id="MSz-DX-pgF"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-yo-bts">
-                                <rect key="frame" x="128" y="580" width="118" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-yo-bts">
+                                <rect key="frame" x="162" y="613" width="50" height="34"/>
                                 <state key="normal" title="Enviar">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -159,7 +161,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8PT-Zf-qHy" customClass="PopView" customModule="Balaio" customModuleProvider="target">
-                                <rect key="frame" x="24" y="71" width="240" height="269"/>
+                                <rect key="frame" x="24" y="73" width="240" height="269"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG6-le-SBc">
@@ -232,6 +234,13 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jnX-yo-bts" firstAttribute="top" secondItem="zYB-xV-z3D" secondAttribute="bottom" constant="20" id="43r-1f-lxz"/>
+                            <constraint firstItem="80d-uC-Aj0" firstAttribute="top" secondItem="jnX-yo-bts" secondAttribute="bottom" constant="20" id="63E-3v-MYa"/>
+                            <constraint firstItem="zYB-xV-z3D" firstAttribute="leading" secondItem="Lmb-0c-JtC" secondAttribute="leadingMargin" constant="8" id="MLf-t0-R0v"/>
+                            <constraint firstItem="jnX-yo-bts" firstAttribute="centerX" secondItem="Lmb-0c-JtC" secondAttribute="centerX" id="e4Z-O6-fEb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zYB-xV-z3D" secondAttribute="trailing" constant="8" id="kgf-Eq-yw8"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="dataPicker" destination="My6-dx-1od" id="bbK-48-NPV"/>
@@ -326,30 +335,43 @@
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adcionar um comentário público" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Nj-2N-aAa">
-                                <rect key="frame" x="36" y="340.5" width="303" height="30"/>
+                                <rect key="frame" x="36" y="496" width="303" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comentários:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuH-Tt-vKW">
-                                <rect key="frame" x="36" y="300" width="102.5" height="20.5"/>
+                                <rect key="frame" x="36" y="455" width="102.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gz4-32-UdC">
+                                <rect key="frame" x="172.5" y="300" width="30" height="67"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Like"/>
+                                <connections>
+                                    <action selector="likes:" destination="Jfa-Kw-F57" eventType="touchUpInside" id="lPn-kZ-D3u"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gz4-32-UdC" firstAttribute="centerX" secondItem="Taz-fu-0cQ" secondAttribute="centerX" id="5jz-Xf-s4c"/>
                             <constraint firstItem="5Nj-2N-aAa" firstAttribute="top" secondItem="OuH-Tt-vKW" secondAttribute="bottom" constant="20" id="Owt-RC-lO8"/>
                             <constraint firstItem="dOq-Wq-m5e" firstAttribute="leading" secondItem="Taz-fu-0cQ" secondAttribute="leadingMargin" constant="20" id="T5C-AN-bkR"/>
                             <constraint firstItem="3MU-af-GqH" firstAttribute="top" secondItem="Ekw-7Y-Zey" secondAttribute="bottom" constant="20" id="VIu-DG-Gve"/>
+                            <constraint firstItem="gz4-32-UdC" firstAttribute="centerY" secondItem="Taz-fu-0cQ" secondAttribute="centerY" id="XSt-jO-I8d"/>
+                            <constraint firstItem="gz4-32-UdC" firstAttribute="top" secondItem="3MU-af-GqH" secondAttribute="bottom" constant="20" id="Y0m-FA-ohr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3MU-af-GqH" secondAttribute="trailing" constant="20" id="ZGZ-Ve-JMH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="J9o-Ni-T7z" secondAttribute="trailing" constant="20" id="cXk-23-cJ3"/>
                             <constraint firstItem="3MU-af-GqH" firstAttribute="leading" secondItem="Taz-fu-0cQ" secondAttribute="leadingMargin" constant="20" id="gwr-jc-vlG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5Nj-2N-aAa" secondAttribute="trailing" constant="20" id="icL-B1-7ow"/>
                             <constraint firstItem="dOq-Wq-m5e" firstAttribute="top" secondItem="B8A-8g-wqG" secondAttribute="bottom" constant="20" id="ikA-Bd-InV"/>
                             <constraint firstItem="5Nj-2N-aAa" firstAttribute="leading" secondItem="Taz-fu-0cQ" secondAttribute="leadingMargin" constant="20" id="ikI-a8-jLl"/>
-                            <constraint firstItem="OuH-Tt-vKW" firstAttribute="top" secondItem="3MU-af-GqH" secondAttribute="bottom" constant="20" id="kqH-YR-abi"/>
+                            <constraint firstItem="OuH-Tt-vKW" firstAttribute="top" secondItem="3MU-af-GqH" secondAttribute="bottom" constant="175" id="kqH-YR-abi"/>
                             <constraint firstItem="J9o-Ni-T7z" firstAttribute="leading" secondItem="dOq-Wq-m5e" secondAttribute="trailing" constant="20" id="nIX-Uo-AW1"/>
                             <constraint firstItem="J9o-Ni-T7z" firstAttribute="top" secondItem="B8A-8g-wqG" secondAttribute="bottom" constant="40" id="tdx-mP-NJn"/>
                             <constraint firstItem="OuH-Tt-vKW" firstAttribute="leading" secondItem="5Nj-2N-aAa" secondAttribute="leading" id="zuM-Ar-SKw"/>
@@ -358,17 +380,14 @@
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="AddComentarios" destination="5Nj-2N-aAa" id="FEA-pN-dqi"/>
-                        <outlet property="comentarios" destination="OuH-Tt-vKW" id="gvz-mU-g5s"/>
                         <outlet property="dadosEvento" destination="dOq-Wq-m5e" id="RHV-59-jBz"/>
-                        <outlet property="dadosEventos" destination="dOq-Wq-m5e" id="ti9-MK-i6w"/>
                         <outlet property="descriEvento" destination="3MU-af-GqH" id="g2I-uW-dht"/>
                         <outlet property="img" destination="J9o-Ni-T7z" id="Ihs-62-UYv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07e-Fq-n1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="920"/>
+            <point key="canvasLocation" x="1141.5999999999999" y="921.58920539730138"/>
         </scene>
     </scenes>
     <resources>
