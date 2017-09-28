@@ -15,6 +15,9 @@
 		181566031F7AC9C90099C9C0 /* AddActivitieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181565FF1F7AC9C90099C9C0 /* AddActivitieViewController.swift */; };
 		181566041F7AC9C90099C9C0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181566001F7AC9C90099C9C0 /* FirstViewController.swift */; };
 		181566051F7AC9C90099C9C0 /* SelectIconsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181566011F7AC9C90099C9C0 /* SelectIconsCollectionViewCell.swift */; };
+		1884E5E91F7D7B9900ADA37F /* PopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884E5E81F7D7B9900ADA37F /* PopView.swift */; };
+		1884E5EB1F7D7C6400ADA37F /* CulturalActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884E5EA1F7D7C6400ADA37F /* CulturalActivities.swift */; };
+		1884E5ED1F7D7C8400ADA37F /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884E5EC1F7D7C8400ADA37F /* Tag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		181565FF1F7AC9C90099C9C0 /* AddActivitieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddActivitieViewController.swift; sourceTree = "<group>"; };
 		181566001F7AC9C90099C9C0 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		181566011F7AC9C90099C9C0 /* SelectIconsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectIconsCollectionViewCell.swift; sourceTree = "<group>"; };
+		1884E5E81F7D7B9900ADA37F /* PopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopView.swift; sourceTree = "<group>"; };
+		1884E5EA1F7D7C6400ADA37F /* CulturalActivities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CulturalActivities.swift; sourceTree = "<group>"; };
+		1884E5EC1F7D7C8400ADA37F /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +66,9 @@
 		181565E81F7AC9340099C9C0 /* Balaio */ = {
 			isa = PBXGroup;
 			children = (
-				181565FE1F7AC9C90099C9C0 /* ActivitieInfoViewController.swift */,
+				1884E5E81F7D7B9900ADA37F /* PopView.swift */,
 				181565FF1F7AC9C90099C9C0 /* AddActivitieViewController.swift */,
+				181565FE1F7AC9C90099C9C0 /* ActivitieInfoViewController.swift */,
 				181566001F7AC9C90099C9C0 /* FirstViewController.swift */,
 				181566011F7AC9C90099C9C0 /* SelectIconsCollectionViewCell.swift */,
 				181565FB1F7AC9660099C9C0 /* Main.storyboard */,
@@ -69,6 +76,8 @@
 				181565F01F7AC9340099C9C0 /* Assets.xcassets */,
 				181565F21F7AC9340099C9C0 /* LaunchScreen.storyboard */,
 				181565F51F7AC9340099C9C0 /* Info.plist */,
+				1884E5EA1F7D7C6400ADA37F /* CulturalActivities.swift */,
+				1884E5EC1F7D7C8400ADA37F /* Tag.swift */,
 			);
 			path = Balaio;
 			sourceTree = "<group>";
@@ -146,10 +155,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1884E5ED1F7D7C8400ADA37F /* Tag.swift in Sources */,
 				181566041F7AC9C90099C9C0 /* FirstViewController.swift in Sources */,
 				181566051F7AC9C90099C9C0 /* SelectIconsCollectionViewCell.swift in Sources */,
 				181565EA1F7AC9340099C9C0 /* AppDelegate.swift in Sources */,
 				181566031F7AC9C90099C9C0 /* AddActivitieViewController.swift in Sources */,
+				1884E5EB1F7D7C6400ADA37F /* CulturalActivities.swift in Sources */,
+				1884E5E91F7D7B9900ADA37F /* PopView.swift in Sources */,
 				181566021F7AC9C90099C9C0 /* ActivitieInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +326,7 @@
 				181565FA1F7AC9340099C9C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
