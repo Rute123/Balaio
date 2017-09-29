@@ -31,11 +31,11 @@ class ActivitieInfoViewController: UIViewController {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! ActivitiesTableviewCell
     
-    cell.nameActivities.text = listOfActivities[indexPath.row].activitiesName
+    cell.nameActivities.text = listOfActivities[indexPath.row].activitieName
     cell.hourActivities.text = listOfActivities[indexPath.row].endsAt
     //cell.tagImageActivities.image = listOfActivities[indexPath.row].tagIconColor
     
-    cell.descriptionActivities.text = listOfActivities[indexPath.row].text
+    cell.descriptionActivities.text = listOfActivities[indexPath.row].commentLabel
     
     cell.textActivities.text = listOfActivities[indexPath.row].shortComment
     

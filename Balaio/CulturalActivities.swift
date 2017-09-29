@@ -16,10 +16,11 @@ import CoreLocation
 // Teremos um array de CulturalActivities local (pra simular o firebased/cloudKit)
 class CulturalActivities {
   
-  var activitiesName: String
+  var activitieName: String
   var location: CLLocationCoordinate2D
   var endsAt: String // date format
   var tag: Tag
+  var commentLabel: String = "O que você ta achando da atividade?"
   var shortComment: String
   var likes: Float = 0
   var activitieIsVisible: Bool = true
@@ -28,7 +29,7 @@ class CulturalActivities {
   // init com tudo
   init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String, likes: Float, activitieIsVisible: Bool, activitieExists: Bool) {
     
-    self.activitiesName = activitiesName
+    self.activitieName = activitiesName
     self.location = location
     self.endsAt = endsAt
     self.tag = tag
@@ -41,7 +42,7 @@ class CulturalActivities {
   // init só com os parâmetros que o usuário adiciona
   init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String) {
     
-    self.activitiesName = activitiesName
+    self.activitieName = activitiesName
     self.location = location
     self.endsAt = endsAt
     self.tag = tag

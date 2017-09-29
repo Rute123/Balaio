@@ -22,8 +22,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   let icones: [String] = ["red", "darkBlue", "orange", "darkGreen"]
   
   // constante pra usar na abertura do mapa
-  let locationManager = CLLocationManager()
-  
+  var locationManager = CLLocationManager()
  
   // View Did Load ()
   override func viewDidLoad() {
@@ -40,7 +39,25 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
       locationManager.desiredAccuracy = kCLLocationAccuracyBest
       locationManager.startUpdatingLocation()
     }
+    
+    for geoplace in bancoDeDados {
+      let activitiePin = MKPointAnnotation()
+      activitiePin.title = geoplace.activitieName
+      activitiePin.coordinate = CLLocationCoordinate2D(latitude: geoplace.location.latitude, longitude: geoplace.location.longitude)
+      mapFirst.addAnnotation(activitiePin)
+    }
+    
+//    for location in locations {
+//      let annotation = MKPointAnnotation()
+//      annotation.title = location.title
+//      annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+//      mapView.addAnnotation(annotation)
+//    }
   }
+  
+  
+  
+  
 
   // Dá o zoom na localização do usuário
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -57,11 +74,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     self.mapFirst.showsUserLocation = true
   }
   
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
+  // didReceiveMemoryWarning() apagada
 
 
   // Actions
@@ -89,6 +102,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     cell.iconImageFilter.image = UIImage(named: icones[indexPath.row])
     return cell
   }
+  
   
   
  }

@@ -6,8 +6,8 @@
 //  Copyright © 2017 Camila Simões Marques Wanderley. All rights reserved.
 //
 
-import Foundation
-import CoreLocation
+import Foundation      // PARA COESSA PORRA
+import CoreLocation   
 import UIKit
 
 // As 4 tags - separadas ou num array??
