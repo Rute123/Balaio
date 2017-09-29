@@ -27,8 +27,6 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   
   @IBOutlet weak var descricaoEvento: UITextField!
   
-  @IBOutlet weak var escolhaDaTagImage: UIImageView!
-  
   @IBOutlet weak var popview: PopView!
   
   @IBOutlet weak var quandoAcabaLabel: UILabel!
@@ -82,8 +80,6 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   
   //POPUP
   @IBAction func celebrar(_ sender: UIButton) {
-    escolhaDaTagImage.image = UIImage(named: "red")
-    popview.isHidden = true
   }
   
   @IBAction func contemplar(_ sender: UIButton) {
