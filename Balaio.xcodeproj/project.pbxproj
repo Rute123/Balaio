@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		180DE82F1F7E803700221C99 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180DE82E1F7E803700221C99 /* MapKit.framework */; };
+		180DE8331F7EFB4E00221C99 /* ActivityPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180DE8321F7EFB4E00221C99 /* ActivityPin.swift */; };
 		181565EA1F7AC9340099C9C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181565E91F7AC9340099C9C0 /* AppDelegate.swift */; };
 		181565F11F7AC9340099C9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181565F01F7AC9340099C9C0 /* Assets.xcassets */; };
 		181565F41F7AC9340099C9C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181565F21F7AC9340099C9C0 /* LaunchScreen.storyboard */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		180DE82E1F7E803700221C99 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		180DE8321F7EFB4E00221C99 /* ActivityPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityPin.swift; sourceTree = "<group>"; };
 		181565E61F7AC9340099C9C0 /* Balaio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balaio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181565E91F7AC9340099C9C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		181565F01F7AC9340099C9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		181565E81F7AC9340099C9C0 /* Balaio */ = {
 			isa = PBXGroup;
 			children = (
+				180DE8321F7EFB4E00221C99 /* ActivityPin.swift */,
 				EF2ED9341F7DC0DB00425E1C /* ActivitiesTableviewCell.swift */,
 				181565E91F7AC9340099C9C0 /* AppDelegate.swift */,
 				181566001F7AC9C90099C9C0 /* FirstViewController.swift */,
@@ -184,6 +187,7 @@
 				EF2ED9351F7DC0DB00425E1C /* ActivitiesTableviewCell.swift in Sources */,
 				1884E5ED1F7D7C8400ADA37F /* Tag.swift in Sources */,
 				181566041F7AC9C90099C9C0 /* FirstViewController.swift in Sources */,
+				180DE8331F7EFB4E00221C99 /* ActivityPin.swift in Sources */,
 				181566051F7AC9C90099C9C0 /* SelectIconsCollectionViewCell.swift in Sources */,
 				181565EA1F7AC9340099C9C0 /* AppDelegate.swift in Sources */,
 				1884E5EF1F7D862800ADA37F /* bancoDeDados.swift in Sources */,
