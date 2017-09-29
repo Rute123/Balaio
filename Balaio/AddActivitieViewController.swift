@@ -143,11 +143,11 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
         
         novoEvento.activitieName = nomeEvento.text!
         novoEvento.shortComment = descricaoEvento.text!
-        novoEvento.tag = celebrarTag // precisa de uma lógica pra pegar a tag escolhida
+        novoEvento.activitieTag = celebrarTag // precisa de uma lógica pra pegar a tag escolhida
         novoEvento.endsAt = "Acaba de \(horaQueAcaba)h\(minutoQueAcaba)min"
         novoEvento.location = (locationNow?.coordinate)!
         
-        // o init que vai ser usado: (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String)
+        // o init que vai ser usado: (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, activitieTag: Tag, shortComment: String)
         
         bancoDeDados.append(novoEvento)
         
