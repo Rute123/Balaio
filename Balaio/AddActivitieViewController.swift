@@ -13,8 +13,8 @@ import CoreLocation
 
 
 protocol ActivitiesDelegate {
-  func addActivities(Activities activities: CulturalActivities)
-  }
+    func addActivities(Activities activities: CulturalActivities)
+}
 
 class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
   
@@ -135,10 +135,47 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     novoEvento.endsAt = "Acaba de \(horaQueAcaba)h\(minutoQueAcaba)min"
     novoEvento.location = (locationNow?.coordinate)!
 
-    // o init que vai ser usado: (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String)
+    }
+    
+    // Mostra a barra de navegação
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        popview.isHidden = true
+    }
+    
+    //Esconde o teclado ao clicar em Return
+    func textFieldShouldReturn(_ textField : UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Actions
+    
+    @IBAction func escolhaDaTag(_ sender: UIButton) {
+        popview.isHidden = false
+    }
+    
+    //POPUP
+    @IBAction func celebrar(_ sender: UIButton) {
+        escolhaDaTag.image = UIImage(named: "red")
+        popview.isHidden = true
+    }
+    @IBAction func contemplar(_ sender: UIButton) {
+        escolhaDaTag.image = UIImage(named: "darkBlue")
+        popview.isHidden = true
+    }
+    @IBAction func colaborar(_ sender: UIButton) {
+        escolhaDaTag.image = UIImage(named: "orange")
+        popview.isHidden = true
+    }
+    @IBAction func praticar(_ sender: UIButton) {
+        escolhaDaTag.image = UIImage(named: "darkGreen")
+        popview.isHidden = true
+    }
+    
+    
+    
     
     bancoDeDados.append(novoEvento)
     
-  }
-  
 }
