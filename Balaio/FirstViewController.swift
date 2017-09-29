@@ -104,11 +104,15 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   // função pra fazer uma nova busca nos pins
   func refreshPins() {
     // Cria os pins de acordo com o bancoDeDados (local)
-    for geoplace in bancoDeDados {
+    for activitie in bancoDeDados {
       let activitiePin = MKPointAnnotation()
-      activitiePin.title = geoplace.activitieName
-      activitiePin.coordinate = CLLocationCoordinate2D(latitude: geoplace.location.latitude, longitude: geoplace.location.longitude)
+      activitiePin.title = activitie.activitieName
+      activitiePin.coordinate = CLLocationCoordinate2D(latitude: activitie.location.latitude, longitude: activitie.location.longitude)
       mapFirst.addAnnotation(activitiePin)
+ 
+      // pra depois comparar a hora de termino com a hora do telefone e retirar o evento do banco de dados
+//       let componentesDaHoraAtual: DateComponents = Calendar.current.dateComponents([.hour,.minute], from: Date())
+//       let totalMinutos = horaQueAcaba! * 60 + minutoQueAcaba! // pra comparar!
     }
   }
   

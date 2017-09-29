@@ -1,6 +1,6 @@
 //
 //  AddActivitieViewController.swift
-//  SemNome
+//  Balaio
 //
 //  Created by Camila Simões Marques Wanderley on 9/25/17.
 //  Copyright © 2017 Camila Simões Marques Wanderley. All rights reserved.
@@ -26,7 +26,7 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   
   @IBOutlet weak var quandoAcabaDataPicker: UIDatePicker!
   
-    @IBOutlet weak var mapaLocalizacao: MKMapView!
+  @IBOutlet weak var mapaLocalizacao: MKMapView!
   
   
   // View Did Load ()
@@ -66,16 +66,57 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   }
   
   
+  // Date picker AAAAAAAGRRRRRR
+  
+  //var timeString = quandoAcabaDataPicker.Value.toShortDateString()
+//  func transformaEssaPorraAe(_ sender: Any) -> String {
+//    
+//    let picker = quandoAcabaDataPicker!
+//    picker.datePickerMode = .time
+//    
+//    let date = picker.date
+//    let components = Calendar.current.dateComponents([.hour, .minute], from: date)
+////    let index = quandoAcabaDataPicker.selectedRow(inComponent: 0)
+//    let hour = components.hour!
+//    let minute = components.minute!
+//    return "Acaba em \(hour)h\(minute)min"
+//  }
+ 
+  
+  
+//  let picker = UIDatePicker()
+//  picker.datePickerMode = .time
+//  
+//  let date = picker.date
+//  let components = Calendar.current.dateComponents([.hour, .minute], from: date)
+//  let hour = components.hour!
+//  let minute = components.minute!
+//  
+//  @IBAction func guadarEstadoo(_ sender: Any) {
+//    let index = estadoPicker.selectedRow(inComponent: 0)
+//    
+//    minhaResposta = bancoDeEstados[index]
+//    print(minhaResposta)
+//    
+//  }
+
+  
   
   // ENVIAR - append nova atividade no array
   @IBAction func enviarEventoProBancoDeDados(_ sender: UIButton) {
+    
+    let componentesDoPicker: DateComponents = Calendar.current.dateComponents([.hour,.minute], from: self.quandoAcabaDataPicker.date)
+    let horaQueAcaba = componentesDoPicker.hour!
+    let minutoQueAcaba = componentesDoPicker.minute!
+   // jeito de comparar comentado na função refreshPin()
+ 
     
     let novoEvento = CulturalActivities()
     
     novoEvento.activitieName = nomeEvento.text!
     novoEvento.shortComment = descricaoEvento.text!
     novoEvento.tag = celebrarTag // precisa de uma lógica pra pegar a tag escolhida
-    // novoEvento.endsAt = quandoAcabaDataPicker.????
+    novoEvento.endsAt = "Acaba de \(horaQueAcaba)h\(minutoQueAcaba)min"
     // novoEvento.location = ???? (pegar loc. do usuário)
 
     // o init que vai ser usado: (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String)
@@ -83,9 +124,5 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     // bancoDeDados.append(novoEvento)
     
   }
-  
-  
-  
-  
   
 }

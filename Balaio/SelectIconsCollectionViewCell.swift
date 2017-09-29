@@ -1,6 +1,6 @@
 //
 //  SelectIconsCollectionViewCell.swift
-//  SemNome
+//  Balaio
 //
 //  Created by Camila Simões Marques Wanderley on 9/26/17.
 //  Copyright © 2017 Camila Simões Marques Wanderley. All rights reserved.

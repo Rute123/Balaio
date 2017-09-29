@@ -1,6 +1,6 @@
 //
 //  ActivitieInfoViewController.swift
-//  SemNome
+//  Balaio
 //
 //  Created by Camila Simões Marques Wanderley on 9/25/17.
 //  Copyright © 2017 Camila Simões Marques Wanderley. All rights reserved.
