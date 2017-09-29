@@ -1,6 +1,6 @@
 //
 //  FirstViewController.swift
-//  SemNome
+//  Balaio
 //
 //  Created by Camila Simões Marques Wanderley on 9/25/17.
 //  Copyright © 2017 Camila Simões Marques Wanderley. All rights reserved.
@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 
-class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate  {
+class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate, MKMapViewDelegate  {
 
   
   // Outlets
@@ -19,12 +19,16 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   @IBOutlet weak var mapFirst: MKMapView!
   
+  @IBOutlet weak var mapRadiusFilter: UIImageView!
+    
   // vai receber os nomes dos aquivos png (ou svg) das tags
   let icones: [String] = ["red", "darkBlue", "orange", "darkGreen"]
   
   // constante pra usar na abertura do mapa
   var locationManager = CLLocationManager()
 
+  // variável representando o primeiro carregamento quando o app é aberto
+  var appFirstLoad: Bool = true
   
   // View Did Load ()
   override func viewDidLoad() {
@@ -42,31 +46,31 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
       locationManager.startUpdatingLocation()
     }
     
-    // Cria os pins de acordo com o bancoDeDados (local)
-    for geoplace in bancoDeDados {
-      let activitiePin = MKPointAnnotation()
-      activitiePin.title = geoplace.activitieName
-      activitiePin.coordinate = CLLocationCoordinate2D(latitude: geoplace.location.latitude, longitude: geoplace.location.longitude)
-      mapFirst.addAnnotation(activitiePin)
-    }
+    refreshPins()
     
   }
   
   
-  
   // Dá o zoom na localização do usuário
+  // agora tem um if que só roda o zoom quando o app é iniciado
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    let locationNow = locations[0]
     
-    let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+    if appFirstLoad == true {
+      let locationNow = locations[0]
     
-    let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow.coordinate.latitude, locationNow.coordinate.longitude)
+      let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
     
-    let mapVisualArea: MKCoordinateRegion = MKCoordinateRegionMake(userLocation, zoom)
+      let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow.coordinate.latitude, locationNow.coordinate.longitude)
     
-    mapFirst.setRegion(mapVisualArea, animated: true)
+      let mapVisualArea: MKCoordinateRegion = MKCoordinateRegionMake(userLocation, zoom)
+    
+      mapFirst.setRegion(mapVisualArea, animated: true)
 
-    self.mapFirst.showsUserLocation = true
+      self.mapFirst.showsUserLocation = true
+      
+      appFirstLoad = false
+    }
+    
   }
 
 
@@ -75,6 +79,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   }
   
   @IBAction func reloadButton(_ sender: Any) {
+    refreshPins()
   }
   
   
@@ -96,7 +101,23 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     return cell
   }
   
+  // função pra fazer uma nova busca nos pins
+  func refreshPins() {
+    // Cria os pins de acordo com o bancoDeDados (local)
+    for geoplace in bancoDeDados {
+      let activitiePin = MKPointAnnotation()
+      activitiePin.title = geoplace.activitieName
+      activitiePin.coordinate = CLLocationCoordinate2D(latitude: geoplace.location.latitude, longitude: geoplace.location.longitude)
+      mapFirst.addAnnotation(activitiePin)
+    }
+  }
   
   
- }
+  
+//  // MKMapViewDelegate
+//  func viewfor func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//    <#code#>
+//  }
+  
+}
 

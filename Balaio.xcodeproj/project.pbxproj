@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180DE82F1F7E803700221C99 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 180DE82E1F7E803700221C99 /* MapKit.framework */; };
 		181565EA1F7AC9340099C9C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181565E91F7AC9340099C9C0 /* AppDelegate.swift */; };
 		181565F11F7AC9340099C9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181565F01F7AC9340099C9C0 /* Assets.xcassets */; };
 		181565F41F7AC9340099C9C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181565F21F7AC9340099C9C0 /* LaunchScreen.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180DE82E1F7E803700221C99 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		181565E61F7AC9340099C9C0 /* Balaio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balaio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		181565E91F7AC9340099C9C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		181565F01F7AC9340099C9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,17 +47,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180DE82F1F7E803700221C99 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180DE82D1F7E803700221C99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				180DE82E1F7E803700221C99 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		181565DD1F7AC9340099C9C0 = {
 			isa = PBXGroup;
 			children = (
 				181565E81F7AC9340099C9C0 /* Balaio */,
 				181565E71F7AC9340099C9C0 /* Products */,
+				180DE82D1F7E803700221C99 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +134,14 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = AUVGK4GFGB;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

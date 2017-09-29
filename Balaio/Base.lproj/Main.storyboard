@@ -22,47 +22,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agp-uI-hz5">
-                                <rect key="frame" x="172" y="20" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agp-uI-hz5">
+                                <rect key="frame" x="155" y="34" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add"/>
+                                <state key="normal" title="Add" image="add"/>
                                 <connections>
                                     <action selector="addActivitieButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9lF-uB-jJG"/>
                                     <segue destination="ffw-fY-jnR" kind="show" id="Htb-CE-6Z7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74S-te-dm7">
-                                <rect key="frame" x="164" y="629" width="47" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74S-te-dm7">
+                                <rect key="frame" x="154" y="590" width="65" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reload"/>
+                                <state key="normal" title="Reload" image="refresh"/>
                                 <connections>
                                     <action selector="reloadButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vta-am-Hhs"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ld9-GQ-SRj">
-                                <rect key="frame" x="0.0" y="247" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="204" width="375" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DP0-sa-rw6">
-                                <rect key="frame" x="37" y="75" width="300" height="147"/>
+                                <rect key="frame" x="32" y="114" width="314" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XEV-ku-CWE">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="64" height="64"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="iconCell" id="irH-dB-vEi" customClass="SelectIconsCollectionViewCell" customModule="Balaio" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UUE-FY-iUz" userLabel="icon Image Filter">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -78,12 +78,17 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mapRadius" translatesAutoresizingMaskIntoConstraints="NO" id="SoD-Jf-CHf">
+                                <rect key="frame" x="0.0" y="204" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="B6G-YU-0Hr"/>
                     <connections>
                         <outlet property="mapFirst" destination="Ld9-GQ-SRj" id="dLM-qk-tSN"/>
+                        <outlet property="mapRadiusFilter" destination="SoD-Jf-CHf" id="kIr-21-x7h"/>
                         <outlet property="selectIcons" destination="DP0-sa-rw6" id="4Ia-rw-dr9"/>
                     </connections>
                 </viewController>
@@ -104,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Porque vale a pena paricipar?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8I-1H-geZ">
-                                <rect key="frame" x="24" y="117" width="235" height="30"/>
+                                <rect key="frame" x="24" y="127" width="235" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -118,43 +123,33 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="My6-dx-1od">
-                                <rect key="frame" x="216" y="190" width="135" height="95"/>
+                                <rect key="frame" x="204" y="190" width="147" height="95"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="528053878.61351401">
                                     <!--2017-09-25 17:37:58 +0000-->
                                 </date>
                             </datePicker>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zYB-xV-z3D">
-                                <rect key="frame" x="24" y="368" width="327" height="225"/>
+                                <rect key="frame" x="24" y="338" width="327" height="225"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="327" id="2ux-qZ-qf9"/>
                                     <constraint firstAttribute="height" constant="225" id="pSC-cU-64J"/>
                                 </constraints>
                             </mapView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome do Evento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QZg-Y5-Yfs">
-                                <rect key="frame" x="24" y="71" width="235" height="30"/>
+                                <rect key="frame" x="24" y="81" width="235" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-yo-bts">
-                                <rect key="frame" x="162" y="613" width="50" height="34"/>
-                                <state key="normal" title="Enviar">
+                                <rect key="frame" x="155" y="583" width="64" height="64"/>
+                                <state key="normal" image="send">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="enviarEventoProBancoDeDados:" destination="ffw-fY-jnR" eventType="touchUpInside" id="jbC-od-W4J"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-P6-SKn">
-                                <rect key="frame" x="277" y="73" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="TAG">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="escolhaDaTag:" destination="ffw-fY-jnR" eventType="touchUpInside" id="uIa-X2-Mcg"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8PT-Zf-qHy" customClass="PopView" customModule="Balaio" customModuleProvider="target">
@@ -236,6 +231,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-P6-SKn">
+                                <rect key="frame" x="283" y="86" width="65" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="magenta">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="escolhaDaTag:" destination="ffw-fY-jnR" eventType="touchUpInside" id="uIa-X2-Mcg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -406,9 +411,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="64" height="64"/>
         <image name="lightBlue" width="64" height="64"/>
         <image name="lightGreen" width="64" height="64"/>
+        <image name="magenta" width="64" height="64"/>
+        <image name="mapRadius" width="743" height="729"/>
         <image name="red" width="64" height="64"/>
+        <image name="refresh" width="64" height="64"/>
+        <image name="send" width="64" height="64"/>
         <image name="yellow" width="64" height="64"/>
     </resources>
 </document>
