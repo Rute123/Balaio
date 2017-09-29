@@ -20,6 +20,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   @IBOutlet weak var mapFirst: MKMapView!
   
   @IBOutlet weak var mapRadiusFilter: UIImageView!
+  
     
   // vai receber os nomes dos aquivos png (ou svg) das tags
   let icones: [String] = ["red", "darkBlue", "orange", "darkGreen"]
