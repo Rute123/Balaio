@@ -9,60 +9,76 @@
 import UIKit
 import MapKit
 
-class ActivitieInfoViewController: UIViewController, UITableViewDataSource, ActivitiesDelegate, UITableViewDelegate, MKMapViewDelegate {
+class ActivitieInfoViewController: UIViewController, ActivitiesDelegate, UITableViewDelegate, MKMapViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
   
-  var listOfActivities: [CulturalActivities] = []
+  var listaDeAtividades: [CulturalActivities] = bancoDeDados
+  
+  // constante pra usar na abertura do mapa
+  var locationManager = CLLocationManager()
   
   //Outlets
   
-  @IBOutlet weak var mapkitActivitiesInfo: MKMapView!
   @IBOutlet weak var detalheEventoTableview: UITableView!
+  
+  @IBOutlet weak var mapkitActivitiesInfo: MKMapView!
+  @IBOutlet weak var imageMapkit: UIImageView!
   
   
   //ACTIONS
   
-  @IBAction func likes(_ sender: Any) {
+  @IBAction func likes(_ sender: UIButton) {
+    
     // ???.likes += 1
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.detalheEventoTableview.delegate = self as UITableViewDelegate
+    self.detalheEventoTableview.delegate = self
+    self.detalheEventoTableview.dataSource = self
   }
   
   //MARK: protocolo UITableViewDelegate
-  internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = detalheEventoTableview.dequeueReusableCell(withIdentifier: "tableViewCellID") as! ActivitiesTableviewCell
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! ActivitiesTableviewCell
     
-    cell.nameActivities.text = bancoDeDados[indexPath.row].activitieName
-    cell.hourActivities.text = bancoDeDados[indexPath.row].endsAt
-    //cell.tagImageActivities.image = bancoDeDados[indexPath.row].tagIconColor
-    
-    cell.descriptionActivities.text = bancoDeDados[indexPath.row].commentLabel
-    
-    cell.textActivities.text = bancoDeDados[indexPath.row].shortComment
-    
-    //cell.img.layer.cornerRadius = 30
-    //cell.img.layer.masksToBounds = true
+    cell.nameActivities.text = listaDeAtividades[indexPath.row].activitieName
+    cell.hourActivities.text = listaDeAtividades[indexPath.row].endsAt
+    cell.tagImageActivities.image = listaDeAtividades[indexPath.row].tag.tagIconColor
+    cell.descriptionActivities.text = listaDeAtividades[indexPath.row].commentLabel
+    cell.textActivities.text = listaDeAtividades[indexPath.row].shortComment
     
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
   }
   
   // Mostra a barra de navegação - volta pra primeira tela
   override func viewWillAppear(_ animated: Bool) {
     self.navigationController?.isNavigationBarHidden = false
   }
-  //MARK: protocolo UITableViewDataSource
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return listOfActivities.count
-  }
   
   //MARK: protocolo ActivitiesDelegate
   func addActivities(Activities activities : CulturalActivities) {
-    self.listOfActivities.append(activities)
+    self.listaDeAtividades.append(activities)
     self.detalheEventoTableview.reloadData()
   }
-  
+  // MAPkit Location
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    
+      let locationNow = locations[0]
+      
+      let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+      
+      let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow.coordinate.latitude, locationNow.coordinate.longitude)
+      
+      let mapVisualArea: MKCoordinateRegion = MKCoordinateRegionMake(userLocation, zoom)
+      
+      mapkitActivitiesInfo.setRegion(mapVisualArea, animated: true)
+      
+      self.mapkitActivitiesInfo.showsUserLocation = true
+  }
 
 }
 // Pra descomentar: command /
