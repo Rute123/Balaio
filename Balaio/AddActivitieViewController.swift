@@ -16,7 +16,7 @@ protocol ActivitiesDelegate {
   func addActivities(Activities activities: CulturalActivities)
   }
 
-class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
+class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
   
     var activitiesDelegate: ActivitiesDelegate? = nil
     
@@ -27,6 +27,8 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   
   @IBOutlet weak var descricaoEvento: UITextField!
   
+  @IBOutlet weak var escolhaDaTagImage: UIImageView!
+  
   @IBOutlet weak var popview: PopView!
   
   @IBOutlet weak var quandoAcabaLabel: UILabel!
@@ -35,13 +37,30 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   
   @IBOutlet weak var mapaLocalizacao: MKMapView!
   
+  // constante pra usar na abertura do mapa
+  var locationManagerAdd = CLLocationManager()
+  
+  var locationNow: CLLocation?
+  
+  var screenLoadFirst: Bool = true
   
   // View Did Load ()
   override func viewDidLoad() {
     super.viewDidLoad()
     nomeEvento.delegate = self
     descricaoEvento.delegate = self
+    mapaLocalizacao.delegate = self
+    
+    // Da zoom na localização do usuário
+    if CLLocationManager.locationServicesEnabled() {
+      locationManagerAdd.delegate = self
+      locationManagerAdd.desiredAccuracy = kCLLocationAccuracyBest
+      locationManagerAdd.startUpdatingLocation()
+    }
+  
   }
+  
+  
   
   // Mostra a barra de navegação 
   override func viewWillAppear(_ animated: Bool) {
@@ -63,8 +82,10 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   
   //POPUP
   @IBAction func celebrar(_ sender: UIButton) {
-    
+    escolhaDaTagImage.image = UIImage(named: "red")
+    popview.isHidden = true
   }
+  
   @IBAction func contemplar(_ sender: UIButton) {
   }
   @IBAction func colaborar(_ sender: UIButton) {
@@ -73,40 +94,32 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   }
   
   
-  // Date picker AAAAAAAGRRRRRR
   
-  //var timeString = quandoAcabaDataPicker.Value.toShortDateString()
-//  func transformaEssaPorraAe(_ sender: Any) -> String {
-//    
-//    let picker = quandoAcabaDataPicker!
-//    picker.datePickerMode = .time
-//    
-//    let date = picker.date
-//    let components = Calendar.current.dateComponents([.hour, .minute], from: date)
-////    let index = quandoAcabaDataPicker.selectedRow(inComponent: 0)
-//    let hour = components.hour!
-//    let minute = components.minute!
-//    return "Acaba em \(hour)h\(minute)min"
-//  }
- 
-  
-  
-//  let picker = UIDatePicker()
-//  picker.datePickerMode = .time
-//  
-//  let date = picker.date
-//  let components = Calendar.current.dateComponents([.hour, .minute], from: date)
-//  let hour = components.hour!
-//  let minute = components.minute!
-//  
-//  @IBAction func guadarEstadoo(_ sender: Any) {
-//    let index = estadoPicker.selectedRow(inComponent: 0)
-//    
-//    minhaResposta = bancoDeEstados[index]
-//    print(minhaResposta)
-//    
-//  }
+  // Dá o zoom na localização do evento (a mesma do usuário, por enquanto)
+  // tem um if que só roda o zoom quando a tela é carregado
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    locationNow = locations[0]
+    
+    if screenLoadFirst == true {
+      
+      // Cria o pin do evento no mapa
+      let newPin = MKPointAnnotation()
+      newPin.coordinate = CLLocationCoordinate2D(latitude: locationNow!.coordinate.latitude, longitude: locationNow!.coordinate.longitude)
+      mapaLocalizacao.addAnnotation(newPin)
+      
+      let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+      let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow!.coordinate.latitude, locationNow!.coordinate.longitude)
+      let mapVisualArea: MKCoordinateRegion = MKCoordinateRegionMake(userLocation, zoom)
+      
+      mapaLocalizacao.setRegion(mapVisualArea, animated: true)
+      self.mapaLocalizacao.showsUserLocation = true
+      
+      screenLoadFirst = false
+    }
+    
+  }
 
+  
   
   
   // ENVIAR - append nova atividade no array
@@ -124,11 +137,11 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     novoEvento.shortComment = descricaoEvento.text!
     novoEvento.tag = celebrarTag // precisa de uma lógica pra pegar a tag escolhida
     novoEvento.endsAt = "Acaba de \(horaQueAcaba)h\(minutoQueAcaba)min"
-    // novoEvento.location = ???? (pegar loc. do usuário)
+    novoEvento.location = (locationNow?.coordinate)!
 
     // o init que vai ser usado: (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String)
     
-    // bancoDeDados.append(novoEvento)
+    bancoDeDados.append(novoEvento)
     
   }
   
