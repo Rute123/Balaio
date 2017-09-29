@@ -160,6 +160,7 @@
                                 </state>
                                 <connections>
                                     <action selector="enviarEventoProBancoDeDados:" destination="ffw-fY-jnR" eventType="touchUpInside" id="jbC-od-W4J"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Dul-It-o8r"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Que horas acaba? (estimativa)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8D-0O-SB0">
@@ -283,7 +284,7 @@
                     </view>
                     <connections>
                         <outlet property="descricaoEvento" destination="y8I-1H-geZ" id="3R3-WI-JDK"/>
-                        <outlet property="escolhaDaTag" destination="EDv-xF-mZs" id="zlo-GA-ZUe"/>
+                        <outlet property="escolhaDaTag" destination="EDv-xF-mZs" id="WO3-Ij-JHD"/>
                         <outlet property="mapaLocalizacao" destination="zYB-xV-z3D" id="ifT-2i-X0a"/>
                         <outlet property="nomeEvento" destination="QZg-Y5-Yfs" id="ZN7-xG-R1m"/>
                         <outlet property="popview" destination="8PT-Zf-qHy" id="bKr-VX-Wjf"/>
@@ -465,4 +466,7 @@
         <image name="refresh" width="64" height="64"/>
         <image name="send" width="64" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dul-It-o8r"/>
+    </inferredMetricsTieBreakers>
 </document>
