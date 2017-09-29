@@ -83,40 +83,6 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
         popview.isHidden = true
     }
     
-
-    // Date picker AAAAAAAGRRRRRR
-    
-    //var timeString = quandoAcabaDataPicker.Value.toShortDateString()
-    //  func transformaEssaPorraAe(_ sender: Any) -> String {
-    //
-    //    let picker = quandoAcabaDataPicker!
-    //    picker.datePickerMode = .time
-    //
-    //    let date = picker.date
-    //    let components = Calendar.current.dateComponents([.hour, .minute], from: date)
-    ////    let index = quandoAcabaDataPicker.selectedRow(inComponent: 0)
-    //    let hour = components.hour!
-    //    let minute = components.minute!
-    //    return "Acaba em \(hour)h\(minute)min"
-    //  }
-    
-    
-    
-    //  let picker = UIDatePicker()
-    //  picker.datePickerMode = .time
-    //
-    //  let date = picker.date
-    //  let components = Calendar.current.dateComponents([.hour, .minute], from: date)
-    //  let hour = components.hour!
-    //  let minute = components.minute!
-    //
-    //  @IBAction func guadarEstadoo(_ sender: Any) {
-    //    let index = estadoPicker.selectedRow(inComponent: 0)
-    //
-    //    minhaResposta = bancoDeEstados[index]
-    //    print(minhaResposta)
-    //
-    //  }
     
     
     
