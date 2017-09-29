@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
-class ActivitieInfoViewController: UIViewController, UITableViewDelegate {
+class ActivitieInfoViewController: UIViewController, UITableViewDataSource, ActivitiesDelegate, UITableViewDelegate, MKMapViewDelegate {
   
+  var listOfActivities: [CulturalActivities] = []
   
   //Outlets
   
+  @IBOutlet weak var mapkitActivitiesInfo: MKMapView!
   @IBOutlet weak var detalheEventoTableview: UITableView!
   
   
@@ -24,11 +27,12 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.detalheEventoTableview.delegate = self as UITableViewDelegate
   }
   
   //MARK: protocolo UITableViewDelegate
-  private func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! ActivitiesTableviewCell
+  internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = detalheEventoTableview.dequeueReusableCell(withIdentifier: "tableViewCellID") as! ActivitiesTableviewCell
     
     cell.nameActivities.text = bancoDeDados[indexPath.row].activitieName
     cell.hourActivities.text = bancoDeDados[indexPath.row].endsAt
@@ -44,14 +48,23 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate {
     return cell
   }
   
-  
   // Mostra a barra de navegação - volta pra primeira tela
   override func viewWillAppear(_ animated: Bool) {
     self.navigationController?.isNavigationBarHidden = false
   }
+  //MARK: protocolo UITableViewDataSource
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return listOfActivities.count
+  }
+  
+  //MARK: protocolo ActivitiesDelegate
+  func addActivities(Activities activities : CulturalActivities) {
+    self.listOfActivities.append(activities)
+    self.detalheEventoTableview.reloadData()
+  }
+  
+
 }
-
-
 // Pra descomentar: command /
 //
 // // Descrição do Evento
@@ -93,4 +106,3 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate {
 // textField.resignFirstResponder()
 // return true
 // }
- 

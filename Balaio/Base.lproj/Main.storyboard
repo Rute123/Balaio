@@ -82,6 +82,14 @@
                                 <rect key="frame" x="0.0" y="204" width="375" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MkA-RN-bKh">
+                                <rect key="frame" x="272" y="608" width="35" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="teste"/>
+                                <connections>
+                                    <segue destination="Jfa-Kw-F57" kind="show" id="z2a-ce-RWm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -295,12 +303,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="360" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rmz-Tn-QeU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="360"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="f6t-o8-Nym">
-                                    <rect key="frame" x="0.0" y="388" width="375" height="282"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </mapView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="360" id="n90-q0-8OX"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="360" id="5ga-q3-jda" customClass="ActivitiesTableviewCell" customModule="Balaio" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="360"/>
@@ -319,7 +326,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TUw-FW-hw7">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brown" translatesAutoresizingMaskIntoConstraints="NO" id="TUw-FW-hw7">
                                                     <rect key="frame" x="267" y="28" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="kIF-1l-smh"/>
@@ -354,6 +361,12 @@
                                                         <action selector="likes:" destination="Jfa-Kw-F57" eventType="touchUpInside" id="rXh-3z-ept"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m37-IY-tI1">
+                                                    <rect key="frame" x="129" y="303" width="29" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="TUw-FW-hw7" firstAttribute="leading" secondItem="xJR-X3-vtW" secondAttribute="trailing" constant="39" id="3Tc-Ud-6Wy"/>
@@ -361,6 +374,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="TUw-FW-hw7" secondAttribute="trailing" constant="20" id="Ajo-DZ-MW1"/>
                                                 <constraint firstItem="1Nh-do-09r" firstAttribute="leading" secondItem="xJR-X3-vtW" secondAttribute="leading" id="Alr-Ae-HXB"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="aaR-A0-RRU" secondAttribute="trailing" constant="16" id="EtN-5d-ChF"/>
+                                                <constraint firstItem="m37-IY-tI1" firstAttribute="top" secondItem="aaR-A0-RRU" secondAttribute="bottom" constant="24" id="HSr-4x-dgv"/>
                                                 <constraint firstItem="oy5-ji-Ncq" firstAttribute="top" secondItem="aaR-A0-RRU" secondAttribute="bottom" constant="20" id="KD8-Ej-nRT"/>
                                                 <constraint firstItem="1Nh-do-09r" firstAttribute="top" secondItem="bRa-S6-lmd" secondAttribute="topMargin" constant="20" id="MFm-8U-SPh"/>
                                                 <constraint firstItem="1Nh-do-09r" firstAttribute="leading" secondItem="bRa-S6-lmd" secondAttribute="leadingMargin" constant="20" id="Ng2-F1-uVE"/>
@@ -370,6 +384,7 @@
                                                 <constraint firstItem="oy5-ji-Ncq" firstAttribute="leading" secondItem="bRa-S6-lmd" secondAttribute="leadingMargin" constant="158" id="gWE-Dc-7Pb"/>
                                                 <constraint firstItem="qeu-WV-2qJ" firstAttribute="top" secondItem="xJR-X3-vtW" secondAttribute="bottom" constant="27" id="iXn-dz-nPd"/>
                                                 <constraint firstItem="1Nh-do-09r" firstAttribute="trailing" secondItem="xJR-X3-vtW" secondAttribute="trailing" id="ii2-Xz-luV"/>
+                                                <constraint firstItem="oy5-ji-Ncq" firstAttribute="leading" secondItem="m37-IY-tI1" secondAttribute="trailing" constant="8" id="kfg-dP-u7f"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="oy5-ji-Ncq" secondAttribute="trailing" constant="155" id="pWz-QV-rjF"/>
                                                 <constraint firstItem="TUw-FW-hw7" firstAttribute="top" secondItem="bRa-S6-lmd" secondAttribute="topMargin" constant="20" id="rkX-PD-cqg"/>
                                                 <constraint firstItem="qeu-WV-2qJ" firstAttribute="leading" secondItem="bRa-S6-lmd" secondAttribute="leadingMargin" constant="20" id="tga-jt-jUm"/>
@@ -387,31 +402,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HT2-1j-Dif">
+                                <rect key="frame" x="0.0" y="360" width="375" height="307"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Rmz-Tn-QeU" secondAttribute="trailing" id="3pC-lk-JGd"/>
                             <constraint firstItem="Rmz-Tn-QeU" firstAttribute="top" secondItem="Taz-fu-0cQ" secondAttribute="top" id="E6I-Hy-drU"/>
-                            <constraint firstItem="OUd-yJ-v14" firstAttribute="top" secondItem="Rmz-Tn-QeU" secondAttribute="bottom" id="Jyc-ta-O0K"/>
+                            <constraint firstItem="OUd-yJ-v14" firstAttribute="top" secondItem="HT2-1j-Dif" secondAttribute="bottom" id="Mzw-qr-Xgy"/>
                             <constraint firstItem="Rmz-Tn-QeU" firstAttribute="top" secondItem="B8A-8g-wqG" secondAttribute="bottom" constant="-20" id="PHl-h5-O4A"/>
-                            <constraint firstItem="Rmz-Tn-QeU" firstAttribute="centerY" secondItem="Taz-fu-0cQ" secondAttribute="centerY" id="vQa-KO-Env"/>
+                            <constraint firstItem="HT2-1j-Dif" firstAttribute="leading" secondItem="Taz-fu-0cQ" secondAttribute="leading" id="QVC-P4-qJD"/>
+                            <constraint firstItem="HT2-1j-Dif" firstAttribute="top" secondItem="Rmz-Tn-QeU" secondAttribute="bottom" id="WBS-CX-y19"/>
+                            <constraint firstAttribute="trailing" secondItem="HT2-1j-Dif" secondAttribute="trailing" id="l8y-JX-lMa"/>
                             <constraint firstItem="Rmz-Tn-QeU" firstAttribute="leading" secondItem="Taz-fu-0cQ" secondAttribute="leading" id="vj0-Cd-8nP"/>
-                            <constraint firstItem="OUd-yJ-v14" firstAttribute="top" secondItem="Rmz-Tn-QeU" secondAttribute="bottom" id="xLI-f8-RIP"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="detalheEventoTableview" destination="Rmz-Tn-QeU" id="UUq-5p-jfI"/>
+                        <outlet property="mapkitActivitiesInfo" destination="HT2-1j-Dif" id="Gps-XX-I1e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07e-Fq-n1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1140" y="941.37931034482767"/>
+            <point key="canvasLocation" x="1146" y="940"/>
         </scene>
     </scenes>
     <resources>
         <image name="add" width="64" height="64"/>
+        <image name="brown" width="64" height="64"/>
         <image name="lightBlue" width="64" height="64"/>
         <image name="lightGreen" width="64" height="64"/>
         <image name="magenta" width="64" height="64"/>
