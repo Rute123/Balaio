@@ -13,24 +13,26 @@ import CoreLocation
 
 class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate  {
 
-  // Outlets
   
+  // Outlets
   @IBOutlet weak var selectIcons: UICollectionView!
   
   @IBOutlet weak var mapFirst: MKMapView!
   
+  // vai receber os nomes dos aquivos png (ou svg) das tags
   let icones: [String] = ["red", "darkBlue", "orange", "darkGreen"]
   
   // constante pra usar na abertura do mapa
   var locationManager = CLLocationManager()
- 
+
+  
   // View Did Load ()
   override func viewDidLoad() {
     super.viewDidLoad()
     
     selectIcons.delegate = self
     selectIcons.dataSource = self
-    
+
     // Pede pra saber a localização do usuário no foreground e background
     locationManager.requestAlwaysAuthorization()
     
@@ -40,6 +42,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
       locationManager.startUpdatingLocation()
     }
     
+    // Cria os pins de acordo com o bancoDeDados (local)
     for geoplace in bancoDeDados {
       let activitiePin = MKPointAnnotation()
       activitiePin.title = geoplace.activitieName
@@ -47,18 +50,10 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
       mapFirst.addAnnotation(activitiePin)
     }
     
-//    for location in locations {
-//      let annotation = MKPointAnnotation()
-//      annotation.title = location.title
-//      annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-//      mapView.addAnnotation(annotation)
-//    }
   }
   
   
   
-  
-
   // Dá o zoom na localização do usuário
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     let locationNow = locations[0]
@@ -73,8 +68,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     self.mapFirst.showsUserLocation = true
   }
-  
-  // didReceiveMemoryWarning() apagada
 
 
   // Actions

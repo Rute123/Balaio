@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-// Classe pra as tags (ícones), com um nome, o ícone e o ícone em escala de cinza
+// Classe pra as tags (ícones), com um nome, o ícone, ícone em escala de cinza (e a descrição do ícone pra fazer a página de informação se der tempo)
 class Tag {
   var tagName: String
   var tagIconColor: UIImage

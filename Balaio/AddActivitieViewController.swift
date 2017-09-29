@@ -6,79 +6,86 @@
 //  Copyright © 2017 Camila Simões Marques Wanderley. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import MapKit
+import CoreLocation
+
 
 class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
-
-    @IBOutlet weak var popview: PopView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        nomeEvento.delegate = self
-        descricao.delegate = self
-        
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
   
   
-  // Mostra a barra de navegação - volta pra primeira tela
+  // Outlets e variáveis
+  @IBOutlet weak var nomeEvento: UITextField!
+  
+  @IBOutlet weak var descricaoEvento: UITextField!
+  
+  @IBOutlet weak var popview: PopView!
+  
+  @IBOutlet weak var quandoAcabaLabel: UILabel!
+  
+  @IBOutlet weak var quandoAcabaDataPicker: UIDatePicker!
+  
+    @IBOutlet weak var mapaLocalizacao: MKMapView!
+  
+  
+  // View Did Load ()
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    nomeEvento.delegate = self
+    descricaoEvento.delegate = self
+  }
+  
+  // Mostra a barra de navegação 
   override func viewWillAppear(_ animated: Bool) {
     self.navigationController?.isNavigationBarHidden = false
     popview.isHidden = true
   }
-
-
-    //Retorna o teclado ao clicar em Return
-    func textFieldShouldReturn(_ textField : UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-        
-    @IBOutlet weak var nomeEvento: UITextField!
-    
-    @IBOutlet weak var descricao: UITextField!
-    
-    @IBAction func tag(_ sender: UIButton) {
-        popview.isHidden = false
-    }
-    
-    //POPUP
-    @IBAction func celebrar(_ sender: UIButton) {
-    }
-    @IBAction func contemplar(_ sender: UIButton) {
-    }
-    @IBAction func colaborar(_ sender: UIButton) {
-    }
-    @IBAction func praticar(_ sender: UIButton) {
-    }
-    
-    
-    @IBOutlet weak var dataPicker: UIDatePicker!
   
+  //Esconde o teclado ao clicar em Return
+  func textFieldShouldReturn(_ textField : UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+
+  // Actions
+  
+  @IBAction func escolhaDaTag(_ sender: UIButton) {
+    popview.isHidden = false
+  }
+  
+  //POPUP
+  @IBAction func celebrar(_ sender: UIButton) {
     
+  }
+  @IBAction func contemplar(_ sender: UIButton) {
+  }
+  @IBAction func colaborar(_ sender: UIButton) {
+  }
+  @IBAction func praticar(_ sender: UIButton) {
+  }
   
   
   
-    @IBAction func enviar(_ sender: UIButton) {
-    }
+  // ENVIAR - append nova atividade no array
+  @IBAction func enviarEventoProBancoDeDados(_ sender: UIButton) {
     
-    @IBOutlet weak var mapaLocalizacao: MKMapView!
+    let novoEvento = CulturalActivities()
     
-    
-    /*
-    // MARK: - Navigation
+    novoEvento.activitieName = nomeEvento.text!
+    novoEvento.shortComment = descricaoEvento.text!
+    novoEvento.tag = celebrarTag // precisa de uma lógica pra pegar a tag escolhida
+    // novoEvento.endsAt = quandoAcabaDataPicker.????
+    // novoEvento.location = ???? (pegar loc. do usuário)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    // o init que vai ser usado: (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String)
+    
+    // bancoDeDados.append(novoEvento)
+    
+  }
+  
+  
+  
+  
+  
 }

@@ -5,10 +5,12 @@
 //  Created by Camila Simões Marques Wanderley on 9/28/17.
 //  Copyright © 2017 Camila Simões Marques Wanderley. All rights reserved.
 //
+// PARA COESSA PORRA
 
-import Foundation      // PARA COESSA PORRA
+import Foundation
 import CoreLocation   
 import UIKit
+
 
 // As 4 tags - separadas ou num array??
 var celebrarTag: Tag = Tag(tagName: "Celebração", tagIconColor: UIImage(named: "red")!, tagIconGrayScale: UIImage(named: "purple")!)
