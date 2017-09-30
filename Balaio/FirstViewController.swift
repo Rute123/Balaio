@@ -61,17 +61,17 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   // agora tem um if que só roda o zoom quando o app é iniciado
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     
+    // trava a posição do usuário no centro
+    mapFirst.userTrackingMode = .follow
+    
     if appFirstLoad == true {
       let locationNow = locations[0]
-      
       let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
-      
       let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow.coordinate.latitude, locationNow.coordinate.longitude)
-      
+
       let mapVisualArea: MKCoordinateRegion = MKCoordinateRegionMake(userLocation, zoom)
       
       mapFirst.setRegion(mapVisualArea, animated: true)
-      
       self.mapFirst.showsUserLocation = true
       
       appFirstLoad = false
@@ -85,6 +85,8 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   }
   
   @IBAction func reloadButton(_ sender: Any) {
+    // locationManager.startUpdatingLocation()
+    removePins()
     refreshPins()
   }
   
@@ -110,7 +112,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   // função pra fazer uma nova busca nos pins
   func refreshPins() {
     // Cria os pins de acordo com o bancoDeDados (local)
-    
     for activitie in bancoDeDados {
       let activitiePin = ActivityPin(activity: activitie)
       activitiePin.title = activitie.activitieName
@@ -123,8 +124,18 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
   }
   
+  // função pra evitar sobescrever os pins no botão reload e pra eliminar eventos acabados
+  func removePins() {
+    if let pins = self.mapFirst?.annotations {
+      for everyPin in pins {
+          mapFirst.removeAnnotation(everyPin)
+      }
+    }
+  }
+  
+  
+  
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-    
   }
   
   
