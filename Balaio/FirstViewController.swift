@@ -48,6 +48,10 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
       locationManager.startUpdatingLocation()
     }
     
+    mapFirst.isZoomEnabled = true
+    mapFirst.isScrollEnabled = false
+    mapFirst.isPitchEnabled = false // perspective
+    
     refreshPins()
     
   }
