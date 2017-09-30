@@ -9,10 +9,14 @@
 import Foundation
 import MapKit
 
+// Classe pros nossos pins, associados com uma CulturalActivitie
 class ActivityPin: MKPointAnnotation {
+  
   let activity: CulturalActivities
-  init(activity: CulturalActivities) {
+  
+  init (activity: CulturalActivities) {
     self.activity = activity
     super.init()
   }
+  
 }

@@ -88,7 +88,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="teste"/>
                                 <connections>
-                                    <segue destination="Jfa-Kw-F57" kind="show" id="z2a-ce-RWm"/>
+                                    <segue destination="Jfa-Kw-F57" kind="show" identifier="" id="z2a-ce-RWm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -171,8 +171,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-P6-SKn">
+                                <rect key="frame" x="283" y="86" width="65" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="escolhaDaTag:" destination="ffw-fY-jnR" eventType="touchUpInside" id="uIa-X2-Mcg"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="magenta" translatesAutoresizingMaskIntoConstraints="NO" id="EDv-xF-mZs">
+                                <rect key="frame" x="283" y="81" width="68" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8PT-Zf-qHy" customClass="PopView" customModule="Balaio" customModuleProvider="target">
-                                <rect key="frame" x="108" y="158" width="240" height="269"/>
+                                <rect key="frame" x="24" y="81" width="240" height="269"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOY-Er-ImG">
@@ -266,20 +280,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-P6-SKn">
-                                <rect key="frame" x="283" y="86" width="65" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="escolhaDaTag:" destination="ffw-fY-jnR" eventType="touchUpInside" id="uIa-X2-Mcg"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="magenta" translatesAutoresizingMaskIntoConstraints="NO" id="EDv-xF-mZs">
-                                <rect key="frame" x="283" y="81" width="68" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -318,7 +318,7 @@
         <!--Activitie Info View Controller-->
         <scene sceneID="Nlg-kZ-bIQ">
             <objects>
-                <viewController id="Jfa-Kw-F57" customClass="ActivitieInfoViewController" customModule="Balaio" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="openActivitieInfoPage" id="Jfa-Kw-F57" customClass="ActivitieInfoViewController" customModule="Balaio" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B8A-8g-wqG"/>
                         <viewControllerLayoutGuide type="bottom" id="OUd-yJ-v14"/>
@@ -338,7 +338,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="341"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5ga-q3-jda" id="bRa-S6-lmd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="341"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="340.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brown" translatesAutoresizingMaskIntoConstraints="NO" id="TUw-FW-hw7">

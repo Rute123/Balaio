@@ -11,13 +11,15 @@ import MapKit
 
 class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource {
   
-  var listaDeAtividades: [CulturalActivities] = bancoDeDados
+  // var listaDeAtividades: [CulturalActivities] = bancoDeDados
   
   var locationNow: CLLocation?
   
   var screenLoadFirst: Bool = true
   
   var locationManagerAdd = CLLocationManager()
+  
+  var listaDeAtividades = ActivityPin(activity: CulturalActivities())
   
   // constante pra usar na abertura do mapa
   
@@ -48,19 +50,24 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
       locationManagerAdd.desiredAccuracy = kCLLocationAccuracyBest
       locationManagerAdd.startUpdatingLocation()
     }
+  
+    // desabilita perspectiva
+    mapkitActivitiesInfo.isPitchEnabled = false
   }
+  
+  
     // MAPkit Location
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
       locationNow = locations[0]
       
       if screenLoadFirst == true {
         
         // Cria o pin do evento no mapa
-        let newPin = MKPointAnnotation()
-        newPin.coordinate = CLLocationCoordinate2D(latitude: locationNow!.coordinate.latitude, longitude: locationNow!.coordinate.longitude)
-        mapkitActivitiesInfo.addAnnotation(newPin)
+       
+        mapkitActivitiesInfo.addAnnotation(listaDeAtividades)
         
+        
+        /////
         let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
         let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow!.coordinate.latitude, locationNow!.coordinate.longitude)
         let mapVisualArea: MKCoordinateRegion = MKCoordinateRegionMake(userLocation, zoom)
@@ -77,11 +84,11 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! ActivitiesTableviewCell
     
-    cell.nameActivities.text = listaDeAtividades[indexPath.row].activitieName
-    cell.hourActivities.text = listaDeAtividades[indexPath.row].endsAt
-    cell.tagImageActivities.image = listaDeAtividades[indexPath.row].activitieTag.tagIconColor
-    cell.descriptionActivities.text = listaDeAtividades[indexPath.row].commentLabel
-    cell.textActivities.text = listaDeAtividades[indexPath.row].shortComment
+    cell.nameActivities.text = listaDeAtividades.activity.activitieName
+    cell.hourActivities.text = listaDeAtividades.activity.endsAt
+    cell.tagImageActivities.image = listaDeAtividades.activity.activitieTag.tagIconColor
+    cell.descriptionActivities.text = listaDeAtividades.activity.commentLabel
+    cell.textActivities.text = listaDeAtividades.activity.shortComment
     
     return cell
   }
@@ -97,7 +104,6 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
   
   //MARK: protocolo ActivitiesDelegate
   func addActivities(Activities activities : CulturalActivities) {
-    self.listaDeAtividades.append(activities)
     self.detalheEventoTableview.reloadData()
   }
 }

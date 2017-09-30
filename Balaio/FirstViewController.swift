@@ -51,6 +51,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     mapFirst.isZoomEnabled = true
     mapFirst.isScrollEnabled = false
     mapFirst.isPitchEnabled = false // perspective
+    mapFirst.delegate = self
     
     refreshPins()
     
@@ -85,7 +86,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   }
   
   @IBAction func reloadButton(_ sender: Any) {
-    // locationManager.startUpdatingLocation()
     removePins()
     refreshPins()
   }
@@ -112,17 +112,19 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   // função pra fazer uma nova busca nos pins
   func refreshPins() {
     // Cria os pins de acordo com o bancoDeDados (local)
-    for activitie in bancoDeDados {
-      let activitiePin = ActivityPin(activity: activitie)
-      activitiePin.title = activitie.activitieName
-      activitiePin.coordinate = CLLocationCoordinate2D(latitude: activitie.location.latitude, longitude: activitie.location.longitude)
-      mapFirst.addAnnotation(activitiePin)
+    for atividade in bancoDeDados {
+      let actPin = ActivityPin(activity: atividade)
+      actPin.title = atividade.activitieName
+      actPin.coordinate = CLLocationCoordinate2D(latitude: atividade.location.latitude, longitude: atividade.location.longitude)
+      
+      mapFirst.addAnnotation(actPin)
       
       // pra depois comparar a hora de termino com a hora do telefone e retirar o evento do banco de dados
       //       let componentesDaHoraAtual: DateComponents = Calendar.current.dateComponents([.hour,.minute], from: Date())
       //       let totalMinutos = horaQueAcaba! * 60 + minutoQueAcaba! // pra comparar!
     }
   }
+  
   
   // função pra evitar sobescrever os pins no botão reload e pra eliminar eventos acabados
   func removePins() {
@@ -135,17 +137,37 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   
   
+  
+  
+//  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//    if let pin = annotation as? ActivityPin {
+//      let pinView = MKAnnotationView(annotation: pin, reuseIdentifier: "aPinCalled" + pin.title!)
+//      
+//      pinView.canShowCallout = false
+//      return pinView
+//    } else {
+//      return nil
+//    }
+//  }
+  
+  
+  
+  
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "openActivitieInfoPage") as! ActivitieInfoViewController
+    
+    vc.listaDeAtividades = view.annotation as! ActivityPin
+    self.navigationController?.pushViewController(vc, animated:true)
   }
   
   
+  // função pra colocar as imagens das tags nos pins (Castilho) - ainda não funciona
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     if let annotation = annotation as? ActivityPin {
-      let pinView = MKAnnotationView(
-        annotation: annotation,
-        reuseIdentifier: "AN_PIN_" + annotation.title!
-      )
+      let pinView = MKAnnotationView(annotation: annotation,reuseIdentifier: "AN_PIN_" + annotation.title!)
       pinView.image = annotation.activity.activitieTag.tagIconColor
+      pinView.canShowCallout = false
+
       return pinView
     }
     return nil
