@@ -79,7 +79,7 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
     
     cell.nameActivities.text = listaDeAtividades[indexPath.row].activitieName
     cell.hourActivities.text = listaDeAtividades[indexPath.row].endsAt
-    cell.tagImageActivities.image = listaDeAtividades[indexPath.row].tag.tagIconColor
+    cell.tagImageActivities.image = listaDeAtividades[indexPath.row].activitieTag.tagIconColor
     cell.descriptionActivities.text = listaDeAtividades[indexPath.row].commentLabel
     cell.textActivities.text = listaDeAtividades[indexPath.row].shortComment
     

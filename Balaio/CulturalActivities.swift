@@ -20,7 +20,7 @@ class CulturalActivities {
   var activitieName: String = ""
   var location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(-8.050749, -34.9534873) // só pra teste
   var endsAt: String = "" // tem que ser do tipo Date - date formatt
-  var tag: Tag = praticarTag  // só pra teste
+  var activitieTag: Tag = praticarTag  // só pra teste
   var commentLabel: String = "O que você ta achando da atividade?"
   var shortComment: String = ""
   var likes: Float = 0
@@ -28,12 +28,12 @@ class CulturalActivities {
   var activitieExists: Bool = true     // não ta indo
   
   // init com tudo
-  init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String, likes: Float, activitieIsVisible: Bool, activitieExists: Bool) {
+  init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, activitieTag: Tag, shortComment: String, likes: Float, activitieIsVisible: Bool, activitieExists: Bool) {
     
     self.activitieName = activitiesName
     self.location = location
     self.endsAt = endsAt
-    self.tag = tag
+    self.activitieTag = activitieTag
     self.shortComment = shortComment
     self.likes = likes
     self.activitieIsVisible = activitieIsVisible
@@ -41,12 +41,12 @@ class CulturalActivities {
   }
   
   // init só com os parâmetros que o usuário adiciona
-  init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String) {
+  init (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, activitieTag: Tag, shortComment: String) {
     
     self.activitieName = activitiesName
     self.location = location
     self.endsAt = endsAt
-    self.tag = tag
+    self.activitieTag = activitieTag
     self.shortComment = shortComment
   }
   

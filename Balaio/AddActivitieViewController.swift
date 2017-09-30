@@ -60,8 +60,10 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
       locationManagerAdd.startUpdatingLocation()
     }
   
+    // mapaLocalizacao.isUserLocationVisible = false // error isUserLocationVisible is a get only property
+    mapaLocalizacao.isPitchEnabled = false // perspectiva
+    
   }
-  
   
   
   // Mostra a barra de navegação 
