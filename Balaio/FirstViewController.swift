@@ -24,7 +24,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   
   // vai receber os nomes dos aquivos png (ou svg) das tags
-  let icones: [String] = ["red", "darkBlue", "orange", "darkGreen"]
+  let icones: [String] = ["celebrarTag", "contemplarTag", "colaborarTag", "praticarTag"]
   
   // constante pra usar na abertura do mapa
   var locationManager = CLLocationManager()
