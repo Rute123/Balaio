@@ -13,13 +13,13 @@ import UIKit
 
 
 // As 4 tags - separadas ou num array??
-var celebrarTag: Tag = Tag(tagName: "Celebração", tagIconColor: UIImage(named: "red")!, tagIconGrayScale: UIImage(named: "purple")!)
+var celebrarTag: Tag = Tag(tagName: "Celebração", tagIconColor: UIImage(named: "red")!, tagIconGrayScale: UIImage(named: "purple")!,tagPin:UIImage(named:"celebrarPin")!)
 
-var exibirTag: Tag = Tag(tagName: "Exibição", tagIconColor: UIImage(named: "orange")!, tagIconGrayScale: UIImage(named: "brown")!)
+var exibirTag: Tag = Tag(tagName: "Exibição", tagIconColor: UIImage(named: "orange")!, tagIconGrayScale: UIImage(named: "brown")!, tagPin:UIImage(named:"contemplarPin")!)
 
-var colaborarTag: Tag = Tag(tagName: "Colaboração", tagIconColor: UIImage(named: "colaborarPin")!, tagIconGrayScale: UIImage(named: "lightGreen")!)
+var colaborarTag: Tag = Tag(tagName: "Colaboração", tagIconColor: UIImage(named: "colaborarTag")!, tagIconGrayScale: UIImage(named: "lightGreen")!,tagPin:UIImage(named:"colaborarPin")!)
 
-var praticarTag: Tag = Tag(tagName: "Prática", tagIconColor: UIImage(named: "darkBlue")!, tagIconGrayScale: UIImage(named: "lightBlue")!)
+var praticarTag: Tag = Tag(tagName: "Prática", tagIconColor: UIImage(named: "darkBlue")!, tagIconGrayScale: UIImage(named: "lightBlue")!,tagPin:UIImage(named:"praticarPin")!)
 
 
 
