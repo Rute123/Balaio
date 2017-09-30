@@ -9,17 +9,22 @@
 import UIKit
 import MapKit
 
-class ActivitieInfoViewController: UIViewController, ActivitiesDelegate, UITableViewDelegate, MKMapViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource {
   
   var listaDeAtividades: [CulturalActivities] = bancoDeDados
   
+  var locationNow: CLLocation?
+  
+  var screenLoadFirst: Bool = true
+  
+  var locationManagerAdd = CLLocationManager()
+  
   // constante pra usar na abertura do mapa
-  var locationManager = CLLocationManager()
+  
   
   //Outlets
   
   @IBOutlet weak var detalheEventoTableview: UITableView!
-  
   @IBOutlet weak var mapkitActivitiesInfo: MKMapView!
   @IBOutlet weak var imageMapkit: UIImageView!
   
@@ -35,10 +40,41 @@ class ActivitieInfoViewController: UIViewController, ActivitiesDelegate, UITable
     super.viewDidLoad()
     self.detalheEventoTableview.delegate = self
     self.detalheEventoTableview.dataSource = self
+    
+    // Da zoom na localização do usuário
+    
+    if CLLocationManager.locationServicesEnabled() {
+      locationManagerAdd.delegate = self
+      locationManagerAdd.desiredAccuracy = kCLLocationAccuracyBest
+      locationManagerAdd.startUpdatingLocation()
+    }
+  }
+    // MAPkit Location
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+      locationNow = locations[0]
+      
+      if screenLoadFirst == true {
+        
+        // Cria o pin do evento no mapa
+        let newPin = MKPointAnnotation()
+        newPin.coordinate = CLLocationCoordinate2D(latitude: locationNow!.coordinate.latitude, longitude: locationNow!.coordinate.longitude)
+        mapkitActivitiesInfo.addAnnotation(newPin)
+        
+        let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow!.coordinate.latitude, locationNow!.coordinate.longitude)
+        let mapVisualArea: MKCoordinateRegion = MKCoordinateRegionMake(userLocation, zoom)
+        
+        mapkitActivitiesInfo.setRegion(mapVisualArea, animated: true)
+        self.mapkitActivitiesInfo.showsUserLocation = true
+        
+        screenLoadFirst = false
+      }
+      
   }
   
-  //MARK: protocolo UITableViewDelegate
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+   //MARK: protocolo UITableViewDelegate
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! ActivitiesTableviewCell
     
     cell.nameActivities.text = listaDeAtividades[indexPath.row].activitieName
@@ -49,7 +85,7 @@ class ActivitieInfoViewController: UIViewController, ActivitiesDelegate, UITable
     
     return cell
   }
-  
+  //MARK: protocolo UITableViewDataSource
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 1
   }
@@ -64,23 +100,29 @@ class ActivitieInfoViewController: UIViewController, ActivitiesDelegate, UITable
     self.listaDeAtividades.append(activities)
     self.detalheEventoTableview.reloadData()
   }
-  // MAPkit Location
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    
-      let locationNow = locations[0]
-      
-      let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
-      
-      let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow.coordinate.latitude, locationNow.coordinate.longitude)
-      
-      let mapVisualArea: MKCoordinateRegion = MKCoordinateRegionMake(userLocation, zoom)
-      
-      mapkitActivitiesInfo.setRegion(mapVisualArea, animated: true)
-      
-      self.mapkitActivitiesInfo.showsUserLocation = true
-  }
-
 }
+  
+  
+/*
+ EXEMPLO DE COLOCAR IMAGEM NO PIN - INCOMPLETO
+ func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+    
+    if control is UIButton{
+      var alert = UIAlertController(title:"Bom Restaurante",message:"Bem-vindo", preferredStyle: UIAlertControllerStyle.Alert)
+      var action = UIAlertAction(title: "Obrigado", style: UIAlertActionStyle.Cancel, handler: nil)
+      
+      alert.addAction(action)
+      self.presentViewController(alert, animated: true, completion: nil)
+    }
+  }
+  var pin = mapkitActivitiesInfo.dequeueReusableAnnotationViewWithIdentifier("PinFeirinha") as!  MKPinAnnotationView!
+  pin.pinColor = .Green //Configuramos aqui a cor do Pin
+  pin.animatesDrop = true //E sua animacao
+  pin.image = UIImage(named: "red_pin") //Adicionando imagem ao Pin
+  pin.centerOffset = CGPointMake(0, -10) //Modificando um pouco o centro em relação ao tamanho da imagem
+}
+
+
 // Pra descomentar: command /
 //
 // // Descrição do Evento
@@ -122,3 +164,4 @@ class ActivitieInfoViewController: UIViewController, ActivitiesDelegate, UITable
 // textField.resignFirstResponder()
 // return true
 // }
+/**/*/

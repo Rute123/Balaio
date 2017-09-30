@@ -131,5 +131,3 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     
     
   }
-  
-}
