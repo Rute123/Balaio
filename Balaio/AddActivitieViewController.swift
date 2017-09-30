@@ -12,14 +12,8 @@ import MapKit
 import CoreLocation
 
 
-protocol ActivitiesDelegate {
-    func addActivities(Activities activities: CulturalActivities)
-}
 
 class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
-  
-    var activitiesDelegate: ActivitiesDelegate? = nil
-    
   
   
   // Outlets e variáveis

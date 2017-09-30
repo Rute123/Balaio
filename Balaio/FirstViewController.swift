@@ -183,11 +183,11 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   }
   
   
-  // função pra colocar as imagens das tags nos pins (Castilho) - ainda não funciona
+  // função pra colocar as imagens das tags nos pins (Castilho) -
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     if let annotation = annotation as? ActivityPin {
       let pinView = MKAnnotationView(annotation: annotation,reuseIdentifier: "AN_PIN_" + annotation.title!)
-      pinView.image = annotation.activity.activitieTag.tagIconColor
+      pinView.image = annotation.activity.activitieTag.tagPin
       pinView.canShowCallout = false
 
       return pinView

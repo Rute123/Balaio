@@ -51,6 +51,7 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
       locationManagerAdd.startUpdatingLocation()
     }
   
+    mapkitActivitiesInfo.delegate = self
     // desabilita perspectiva
     mapkitActivitiesInfo.isPitchEnabled = false
   }
@@ -76,6 +77,7 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
         self.mapkitActivitiesInfo.showsUserLocation = true
         
         screenLoadFirst = false
+  
       }
       
   }
@@ -102,32 +104,22 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
     self.navigationController?.isNavigationBarHidden = false
   }
   
-  //MARK: protocolo ActivitiesDelegate
-  func addActivities(Activities activities : CulturalActivities) {
-    self.detalheEventoTableview.reloadData()
+  
+  // função pra colocar as imagens das tags nos pins (Castilho) -
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    if let annotation = annotation as? ActivityPin {
+      let pinView = MKAnnotationView(annotation: annotation,reuseIdentifier: "AN_PIN_" + annotation.title!)
+      pinView.image = annotation.activity.activitieTag.tagPin
+      pinView.canShowCallout = false
+      
+      return pinView
+    }
+    return nil
   }
 }
   
   
 /*
- EXEMPLO DE COLOCAR IMAGEM NO PIN - INCOMPLETO
- func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
-    
-    if control is UIButton{
-      var alert = UIAlertController(title:"Bom Restaurante",message:"Bem-vindo", preferredStyle: UIAlertControllerStyle.Alert)
-      var action = UIAlertAction(title: "Obrigado", style: UIAlertActionStyle.Cancel, handler: nil)
-      
-      alert.addAction(action)
-      self.presentViewController(alert, animated: true, completion: nil)
-    }
-  }
-  var pin = mapkitActivitiesInfo.dequeueReusableAnnotationViewWithIdentifier("PinFeirinha") as!  MKPinAnnotationView!
-  pin.pinColor = .Green //Configuramos aqui a cor do Pin
-  pin.animatesDrop = true //E sua animacao
-  pin.image = UIImage(named: "red_pin") //Adicionando imagem ao Pin
-  pin.centerOffset = CGPointMake(0, -10) //Modificando um pouco o centro em relação ao tamanho da imagem
-}
-
 
 // Pra descomentar: command /
 //
@@ -170,4 +162,4 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
 // textField.resignFirstResponder()
 // return true
 // }
-/**/*/
+*/
