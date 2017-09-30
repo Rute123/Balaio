@@ -132,27 +132,4 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     
     
     
-    // ENVIAR - append nova atividade no array
-    @IBAction func enviarEventoProBancoDeDados(_ sender: UIButton) {
-        
-        let componentesDoPicker: DateComponents = Calendar.current.dateComponents([.hour,.minute], from: self.quandoAcabaDataPicker.date)
-        let horaQueAcaba = componentesDoPicker.hour!
-        let minutoQueAcaba = componentesDoPicker.minute!
-        // jeito de comparar comentado na função refreshPin()
-        
-        
-        let novoEvento = CulturalActivities()
-        
-        novoEvento.activitieName = nomeEvento.text!
-        novoEvento.shortComment = descricaoEvento.text!
-        novoEvento.activitieTag = celebrarTag // precisa de uma lógica pra pegar a tag escolhida
-        novoEvento.endsAt = "Acaba de \(horaQueAcaba)h\(minutoQueAcaba)min"
-        novoEvento.location = (locationNow?.coordinate)!
-        
-        // o init que vai ser usado: (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, activitieTag: Tag, shortComment: String)
-        
-        bancoDeDados.append(novoEvento)
-        
-    }
-    
-}
+  }
