@@ -23,8 +23,17 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   @IBOutlet weak var mapRadiusFilter: UIImageView!
   
   
-  // vai receber os nomes dos aquivos png (ou svg) das tags
-  let icones: [String] = ["celebrarTag", "contemplarTag", "colaborarTag", "praticarTag"]
+  // contém os nomes das imagens das tags
+  var selectedTags: [String] = ["celebrarTag", "contemplarTag", "colaborarTag", "praticarTag"]
+  var deselectedTags: [String] = ["celebrarTagPb", "contemplarTagPb", "colaborarTagPb", "praticarTagPb"]
+  
+  // vai receber os nomes das imagens das tags
+  var filtroDosPins: [String] = []
+  
+//  convenience init() {
+//    self.init()
+//    self.filtroDosPins = icones
+//  }
   
   // constante pra usar na abertura do mapa
   var locationManager = CLLocationManager()
@@ -52,6 +61,8 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     mapFirst.isScrollEnabled = false
     mapFirst.isPitchEnabled = false // perspective
     mapFirst.delegate = self
+    
+    filtroDosPins = selectedTags
     
     refreshPins()
     
@@ -103,15 +114,32 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   // Define o número de cells no collection view (ícones)
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return icones.count
+    return selectedTags.count
   }
   
   // Duplica as cells do collection View pra mostrar os ícones
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "iconCell", for: indexPath) as! SelectIconsCollectionViewCell
-    cell.iconImageFilter.image = UIImage(named: icones[indexPath.row])
+    cell.iconImageFilter.image = UIImage(named: filtroDosPins[indexPath.row])
     return cell
+  }
+  
+  ///////// Troca as imagens das tags
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+  
+    if filtroDosPins[indexPath.row] == selectedTags[indexPath.row] {
+      filtroDosPins.remove(at: indexPath.row)
+      filtroDosPins.insert(deselectedTags[indexPath.row], at: indexPath.row)
+      print ("deselecionou")
+      //
+    } else {
+      
+      filtroDosPins.remove(at: indexPath.row)
+      filtroDosPins.insert(selectedTags[indexPath.row], at: indexPath.row)
+      print ("selecionou")
+      //
+    }
   }
   
   
@@ -143,19 +171,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   }
   
   
-  
-  
-  
-//  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//    if let pin = annotation as? ActivityPin {
-//      let pinView = MKAnnotationView(annotation: pin, reuseIdentifier: "aPinCalled" + pin.title!)
-//      
-//      pinView.canShowCallout = false
-//      return pinView
-//    } else {
-//      return nil
-//    }
-//  }
   
   
   
