@@ -24,7 +24,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   
   // vai receber os nomes dos aquivos png (ou svg) das tags
-  let icones: [String] = ["red", "darkBlue", "orange", "darkGreen"]
+  let icones: [String] = ["celebrarTag", "contemplarTag", "colaborarTag", "praticarTag"]
   
   // constante pra usar na abertura do mapa
   var locationManager = CLLocationManager()
@@ -59,7 +59,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   
   // Dá o zoom na localização do usuário
-  // agora tem um if que só roda o zoom quando o app é iniciado
+  // só roda o zoom quando a tela é iniciada
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     
     // trava a posição do usuário no centro
@@ -83,7 +83,9 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   // Actions
   @IBAction func addActivitieButton(_ sender: Any) {
+    // envia pra a tela AddActivitiesViewControler
   }
+  
   
   @IBAction func reloadButton(_ sender: Any) {
     removePins()
@@ -91,14 +93,17 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   }
   
   
-  // Define o número de cells no collection view (ícones)
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 4
-  }
-  
   // Esconde a barra de navegação - primeira tela
   override func viewWillAppear(_ animated: Bool) {
     self.navigationController?.isNavigationBarHidden = true
+  }
+  
+  
+  // COLLECTION VIEW (tags)
+  
+  // Define o número de cells no collection view (ícones)
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return icones.count
   }
   
   // Duplica as cells do collection View pra mostrar os ícones
@@ -108,6 +113,8 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     cell.iconImageFilter.image = UIImage(named: icones[indexPath.row])
     return cell
   }
+  
+  
   
   // função pra fazer uma nova busca nos pins
   func refreshPins() {
