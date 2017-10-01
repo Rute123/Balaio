@@ -30,11 +30,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   // vai receber os nomes das imagens das tags
   var filtroDosPins: [String] = []
   
-//  convenience init() {
-//    self.init()
-//    self.filtroDosPins = icones
-//  }
-  
   // constante pra usar na abertura do mapa
   var locationManager = CLLocationManager()
   
@@ -131,12 +126,14 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     if filtroDosPins[indexPath.row] == selectedTags[indexPath.row] {
       filtroDosPins.remove(at: indexPath.row)
       filtroDosPins.insert(deselectedTags[indexPath.row], at: indexPath.row)
+      selectIcons.reloadData()
       print ("deselecionou")
       //
     } else {
       
       filtroDosPins.remove(at: indexPath.row)
       filtroDosPins.insert(selectedTags[indexPath.row], at: indexPath.row)
+      selectIcons.reloadData()
       print ("selecionou")
       //
     }
