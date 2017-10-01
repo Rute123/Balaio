@@ -13,22 +13,26 @@ import UIKit
 class Tag {
   var tagName: String
   var tagIconColor: UIImage
+  var tagIconColorName: String
   var tagIconGrayScale: UIImage
   var tagDescription: String = ""
-    var tagPin:UIImage
+  var tagPin:UIImage
+  
   // init com a descrição
-    init (tagName: String, tagIconColor: UIImage, tagIconGrayScale: UIImage, tagDescription: String, tagPin:UIImage) {
+  init (tagName: String, tagIconColor: UIImage, tagIconColorName: String, tagIconGrayScale: UIImage, tagDescription: String, tagPin:UIImage) {
     self.tagName = tagName
     self.tagIconColor = tagIconColor
+    self.tagIconColorName = tagIconColorName
     self.tagIconGrayScale = tagIconGrayScale
     self.tagDescription = tagDescription
     self.tagPin = tagPin
   }
   
   // init sem a descrição (ela é um string vazio)
-    init (tagName: String, tagIconColor: UIImage, tagIconGrayScale: UIImage, tagPin:UIImage) {
+  init (tagName: String, tagIconColor: UIImage, tagIconColorName: String, tagIconGrayScale: UIImage, tagPin:UIImage) {
     self.tagName = tagName
     self.tagIconColor = tagIconColor
+    self.tagIconColorName = tagIconColorName
     self.tagIconGrayScale = tagIconGrayScale
     self.tagPin = tagPin
   }
