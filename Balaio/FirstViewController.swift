@@ -33,8 +33,9 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   // constante pra usar na abertura do mapa
   var locationManager = CLLocationManager()
   
-  // variável representando o primeiro carregamento quando o app é aberto
-  var appFirstLoad: Bool = true
+  // variável representando o primeiro carregamento da tela
+  var viewFirstLoad: Bool = true
+
   
   // View Did Load ()
   override func viewDidLoad() {
@@ -42,6 +43,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     selectIcons.delegate = self
     selectIcons.dataSource = self
+    mapFirst.delegate = self
     
     // Pede pra saber a localização do usuário no foreground e background
     locationManager.requestAlwaysAuthorization()
@@ -52,11 +54,12 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
       locationManager.startUpdatingLocation()
     }
     
+    // Map User Interaction
     mapFirst.isZoomEnabled = true
     mapFirst.isScrollEnabled = false
     mapFirst.isPitchEnabled = false // perspective
-    mapFirst.delegate = self
     
+    // o app abre com todas as tags ativadas
     filtroDosPins = selectedTags
     
     refreshPins()
@@ -64,14 +67,16 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   }
   
   
-  // Dá o zoom na localização do usuário
-  // só roda o zoom quando a tela é iniciada
+  // é chamada toda vez que a localização do usuário muda
+  // influenciada por varições na leitura do GPS
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     
     // trava a posição do usuário no centro
     mapFirst.userTrackingMode = .follow
     
-    if appFirstLoad == true {
+    // Dá o zoom na localização do usuário
+    // só roda o zoom quando a tela é iniciada
+    if viewFirstLoad == true {
       let locationNow = locations[0]
       let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
       let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow.coordinate.latitude, locationNow.coordinate.longitude)
@@ -81,7 +86,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
       mapFirst.setRegion(mapVisualArea, animated: true)
       self.mapFirst.showsUserLocation = true
       
-      appFirstLoad = false
+      viewFirstLoad = false
     }
     
   }
@@ -120,44 +125,38 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     return cell
   }
   
-  ///////// Troca as imagens das tags
+  // Troca as imagens das tags (coloridas // preto e branco)
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
   
     if filtroDosPins[indexPath.row] == selectedTags[indexPath.row] {
+      // Se tag selecionada {desseleciona}
       filtroDosPins.remove(at: indexPath.row)
       filtroDosPins.insert(deselectedTags[indexPath.row], at: indexPath.row)
       selectIcons.reloadData()
       removePins()
       refreshPins()
       print ("deselecionou")
-      //
-    } else {
       
+    } else {
+      // Se tag desselecionada {seleciona}
       filtroDosPins.remove(at: indexPath.row)
       filtroDosPins.insert(selectedTags[indexPath.row], at: indexPath.row)
       selectIcons.reloadData()
       removePins()
       refreshPins()
       print ("selecionou")
-      //
     }
   }
   
   
-//  dai quando for botar o pin tu ve se o pin ta no array
-//  
-//  if o dado do pin que eu quero ta no array com as seleções {
-//    mapFirst.addAnnotation(actPin)
-//  }
-  
   
   // função pra fazer uma nova busca nos pins
   func refreshPins() {
-    // Cria os pins de acordo com o bancoDeDados (local)
     
+    // Cria os pins de acordo com o bancoDeDados (local)
     for atividade in bancoDeDados {
       
-      // need "file name" property from UIImage
+      // fltra os pins pelas tags ativadas
       if filtroDosPins.contains(atividade.activitieTag.tagIconColorName) {
       
         let actPin = ActivityPin(activity: atividade)
@@ -166,10 +165,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
       
         mapFirst.addAnnotation(actPin)
       }
-      
-      // pra depois comparar a hora de termino com a hora do telefone e retirar o evento do banco de dados
-      //       let componentesDaHoraAtual: DateComponents = Calendar.current.dateComponents([.hour,.minute], from: Date())
-      //       let totalMinutos = horaQueAcaba! * 60 + minutoQueAcaba! // pra comparar!
     }
   }
   
@@ -187,17 +182,26 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   
   
   
-  
+  // Função que chama a tela de informação quando um pin é tocado
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "openActivitieInfoPage") as! ActivitieInfoViewController
+    let viewController = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "openActivitieInfoPage") as! ActivitieInfoViewController
     
-    vc.listaDeAtividades = view.annotation as! ActivityPin
-    self.navigationController?.pushViewController(vc, animated:true)
+    viewController.selectedPin = view.annotation as! ActivityPin
+    self.navigationController?.pushViewController(viewController, animated:true)
   }
   
   
-  // função pra colocar as imagens das tags nos pins (Castilho) -
+  // função pra colocar as imagens das tags nos pins (Castilho)
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    
+//    // User Pin
+//    if annotation is MKUserLocation {
+//      let userPin = mapView.view(for: annotation) as! MKPinAnnotationView!
+//      userPin?.image = UIImage(named: "userPin")!
+//      return userPin
+//    }
+    
+    // Activities Pins
     if let annotation = annotation as? ActivityPin {
       let pinView = MKAnnotationView(annotation: annotation,reuseIdentifier: "AN_PIN_" + annotation.title!)
       pinView.image = annotation.activity.activitieTag.tagPin
@@ -210,57 +214,12 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
 
 }
 
-//public func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//  var annotationView: MKAnnotationView!
-//
-//  if annotation is MKUserLocation{
-//    annotationView = nil
-//  }
-//  else {
-//    
-//    if let annotation = annotation as? LugarAnnotation {
-//      let identifier = "viewLugar"
-//      // Reuse the annotation if possible
-//      annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//        as? MKPinAnnotationView
-//      if annotationView == nil
-//      {
-//        let detailButton: UIButton = UIButton(type: UIButtonType.detailDisclosure)
-//        let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//        pinAnnotationView.canShowCallout = true
-//        pinAnnotationView.animatesDrop = true
-//        pinAnnotationView.pinTintColor = UIColor.blue
-//        pinAnnotationView.rightCalloutAccessoryView = detailButton
-//        
-//        annotationView = pinAnnotationView
-//      }
-//      
-//    } else  {
-//      let identifier = "viewGenerica"
-//      // Reuse the annotation if possible
-//      annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//      
-//      if annotationView == nil
-//      {
-//        annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//        
-//        annotationView!.image = UIImage(named: "pino.png")
-//        annotationView!.canShowCallout = true
-//      }
-//    }
-//    
-//    annotationView!.annotation = annotation
-//  }
-//  return  annotationView
-//  
-//}
 
 
 
 
-//let id = "viewLocation"
-//let pinView = mapView.dequeueReusableAnnotationView(withIdentifier: id) as? MKPinAnnotationView
-//if pinView == nil {
-//  pinView!.image = UIImage(named: "red") // pinView!.activitieTag.tagIconColor(named: IndexPath[row])
-//}
-//return pinView
+
+// pra depois comparar a hora de termino com a hora do telefone e retirar o evento do banco de dados
+//       let componentesDaHoraAtual: DateComponents = Calendar.current.dateComponents([.hour,.minute], from: Date())
+//       let totalMinutos = horaQueAcaba! * 60 + minutoQueAcaba! // pra comparar!
+

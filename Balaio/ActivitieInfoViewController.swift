@@ -19,7 +19,7 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
   
   var locationManagerAdd = CLLocationManager()
   
-  var listaDeAtividades = ActivityPin(activity: CulturalActivities())
+  var selectedPin = ActivityPin(activity: CulturalActivities())
   
   // constante pra usar na abertura do mapa
   
@@ -65,12 +65,12 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
         
         // Cria o pin do evento no mapa
        
-        mapkitActivitiesInfo.addAnnotation(listaDeAtividades)
+        mapkitActivitiesInfo.addAnnotation(selectedPin)
         
         
-        /////
+        // da zoom no pin da atividade quando a tela é carregada
         let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
-        let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow!.coordinate.latitude, locationNow!.coordinate.longitude)
+        let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(selectedPin.coordinate.latitude, selectedPin.coordinate.longitude)
         let mapVisualArea: MKCoordinateRegion = MKCoordinateRegionMake(userLocation, zoom)
         
         mapkitActivitiesInfo.setRegion(mapVisualArea, animated: true)
@@ -86,11 +86,11 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! ActivitiesTableviewCell
     
-    cell.nameActivities.text = listaDeAtividades.activity.activitieName
-    cell.hourActivities.text = listaDeAtividades.activity.endsAt
-    cell.tagImageActivities.image = listaDeAtividades.activity.activitieTag.tagIconColor
-    cell.descriptionActivities.text = listaDeAtividades.activity.commentLabel
-    cell.textActivities.text = listaDeAtividades.activity.shortComment
+    cell.nameActivities.text = selectedPin.activity.activitieName
+    cell.hourActivities.text = selectedPin.activity.endsAt
+    cell.tagImageActivities.image = selectedPin.activity.activitieTag.tagIconColor
+    cell.descriptionActivities.text = selectedPin.activity.commentLabel
+    cell.textActivities.text = selectedPin.activity.shortComment
     
     return cell
   }
@@ -105,8 +105,10 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
   }
   
   
-  // função pra colocar as imagens das tags nos pins (Castilho) -
+  // função pra colocar as imagens nos pins (Castilho) - precisa nessa tela?
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    
+    // Activities Pins
     if let annotation = annotation as? ActivityPin {
       let pinView = MKAnnotationView(annotation: annotation,reuseIdentifier: "AN_PIN_" + annotation.title!)
       pinView.image = annotation.activity.activitieTag.tagPin
