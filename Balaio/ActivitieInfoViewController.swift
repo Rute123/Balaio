@@ -117,7 +117,12 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
     return nil
   }
 }
-  
+
+
+
+
+
+
   
 /*
 
