@@ -15,7 +15,7 @@ import UIKit
 // As 4 tags - separadas ou num array??
 var celebrarTag: Tag = Tag(tagName: "Celebração", tagIconColor: UIImage(named: "celebrarTag")!, tagIconColorName: "celebrarTag", tagIconGrayScale: UIImage(named: "celebrarTagPb")!,tagPin:UIImage(named:"celebrarPin")!)
 
-var exibirTag: Tag = Tag(tagName: "Exibição", tagIconColor: UIImage(named: "contemplarTag")!, tagIconColorName: "contemplarTag", tagIconGrayScale: UIImage(named: "celebrarTagPb")!, tagPin:UIImage(named:"contemplarPin")!)
+var contemplarTag: Tag = Tag(tagName: "Exibição", tagIconColor: UIImage(named: "contemplarTag")!, tagIconColorName: "contemplarTag", tagIconGrayScale: UIImage(named: "celebrarTagPb")!, tagPin:UIImage(named:"contemplarPin")!)
 
 var colaborarTag: Tag = Tag(tagName: "Colaboração", tagIconColor: UIImage(named: "colaborarTag")!, tagIconColorName: "colaborarTag", tagIconGrayScale: UIImage(named: "colaborarTagPb")!,tagPin:UIImage(named:"colaborarPin")!)
 
@@ -24,7 +24,7 @@ var praticarTag: Tag = Tag(tagName: "Prática", tagIconColor: UIImage(named: "pr
 
 
 // array local de CulturalActivities
-var bancoDeDados: [CulturalActivities] = [CulturalActivities(activitiesName: "Feirinha no CAC", location: CLLocationCoordinate2DMake(-8.050749, -34.9534873), endsAt: "Acaba de 17h", activitieTag: exibirTag, shortComment: "Barraquinhas vendendo bolsa, coisa pra cabelo, no precinho XD", likes: 0, activitieIsVisible: true, activitieExists: true),
+var bancoDeDados: [CulturalActivities] = [CulturalActivities(activitiesName: "Feirinha no CAC", location: CLLocationCoordinate2DMake(-8.050749, -34.9534873), endsAt: "Acaba de 17h", activitieTag: contemplarTag, shortComment: "Barraquinhas vendendo bolsa, coisa pra cabelo, no precinho XD", likes: 0, activitieIsVisible: true, activitieExists: true),
   
   CulturalActivities(activitiesName: "Party Hard na casa de Maysa", location:CLLocationCoordinate2DMake(-8.035594, -34.9441419), endsAt: "Acaba de 20h30", activitieTag: colaborarTag, shortComment: "A gente entregou o app, bora comemorar!!!"),
   

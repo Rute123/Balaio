@@ -107,22 +107,37 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     
     //POPUP
     @IBAction func celebrar(_ sender: UIButton) {
-        escolhaDaTag.image = UIImage(named: "celebrarTag")
+        escolhaDaTag.image = celebrarTag.tagIconColor
         popview.isHidden = true
     }
     @IBAction func contemplar(_ sender: UIButton) {
-        escolhaDaTag.image = UIImage(named: "contemplarTag")
+        escolhaDaTag.image = contemplarTag.tagIconColor
         popview.isHidden = true
     }
     @IBAction func colaborar(_ sender: UIButton) {
-        escolhaDaTag.image = UIImage(named: "colaborarTag")
+        escolhaDaTag.image = colaborarTag.tagIconColor
         popview.isHidden = true
     }
     @IBAction func praticar(_ sender: UIButton) {
-        escolhaDaTag.image = UIImage(named: "praticarTag")
+        escolhaDaTag.image = praticarTag.tagIconColor
         popview.isHidden = true
     }
-    
+  
+  
+  
+  // Novo Pin no mapa
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    if let annotation = annotation as? MKPointAnnotation {
+      let pinWillBeAdd = MKAnnotationView(annotation: annotation,reuseIdentifier: "newPin")
+      pinWillBeAdd.image = escolhaDaTag.image
+      pinWillBeAdd.canShowCallout = false
+      
+      return pinWillBeAdd
+    }
+    return nil
+  }
+  
+  
     
   // ENVIAR - append nova atividade no array
   @IBAction func enviarEventoProBancoDeDados(_ sender: UIButton) {

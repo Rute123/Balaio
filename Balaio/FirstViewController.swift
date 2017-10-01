@@ -64,6 +64,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     refreshPins()
     
+    // mapFirst.tintColor = UIColor.black
   }
   
   
