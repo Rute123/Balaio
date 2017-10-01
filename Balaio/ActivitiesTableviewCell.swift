@@ -10,7 +10,9 @@ import UIKit
 
 class ActivitiesTableviewCell: UITableViewCell {
 
-  
+    // variavel para likes
+    var numberOfLikes = 22
+    
   @IBOutlet weak var nameActivities: UILabel!
   
   @IBOutlet weak var hourActivities: UILabel!
@@ -22,8 +24,15 @@ class ActivitiesTableviewCell: UITableViewCell {
   
   @IBOutlet weak var textActivities: UILabel!
   
+  @IBOutlet weak var hahaha: UILabel!
   
   
+    @IBAction func likeActivity(_ sender: UIButton) {
+        
+        numberOfLikes += 1
+        hahaha.text = String(numberOfLikes)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

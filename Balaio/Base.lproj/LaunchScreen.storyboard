@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="balaioIcon" translatesAutoresizingMaskIntoConstraints="NO" id="jVu-g7-yEm">
-                                <rect key="frame" x="78" y="167" width="218" height="218"/>
+                                <rect key="frame" x="78" y="190" width="218" height="213"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
