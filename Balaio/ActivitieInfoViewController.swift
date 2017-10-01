@@ -20,6 +20,7 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
   var locationManagerAdd = CLLocationManager()
   
   var selectedPin = ActivityPin(activity: CulturalActivities())
+    
   
   // constante pra usar na abertura do mapa
   
@@ -30,13 +31,10 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
   @IBOutlet weak var mapkitActivitiesInfo: MKMapView!
   @IBOutlet weak var imageMapkit: UIImageView!
   
-  
+
   //ACTIONS
   
-  @IBAction func likes(_ sender: UIButton) {
-    
-    // ???.likes += 1
-  }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -54,6 +52,8 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
     mapkitActivitiesInfo.delegate = self
     // desabilita perspectiva
     mapkitActivitiesInfo.isPitchEnabled = false
+    
+    
   }
   
   

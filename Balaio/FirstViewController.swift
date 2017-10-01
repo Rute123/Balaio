@@ -186,9 +186,10 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
   // Função que chama a tela de informação quando um pin é tocado
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
     let viewController = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "openActivitieInfoPage") as! ActivitieInfoViewController
-    
-    viewController.selectedPin = view.annotation as! ActivityPin
-    self.navigationController?.pushViewController(viewController, animated:true)
+    if let x = view.annotation {
+      viewController.selectedPin = view.annotation as! ActivityPin
+      self.navigationController?.pushViewController(viewController, animated:true)
+    }
   }
   
   

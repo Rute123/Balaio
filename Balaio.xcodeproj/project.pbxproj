@@ -21,6 +21,8 @@
 		1884E5EB1F7D7C6400ADA37F /* CulturalActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884E5EA1F7D7C6400ADA37F /* CulturalActivities.swift */; };
 		1884E5ED1F7D7C8400ADA37F /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884E5EC1F7D7C8400ADA37F /* Tag.swift */; };
 		1884E5EF1F7D862800ADA37F /* bancoDeDados.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1884E5EE1F7D862800ADA37F /* bancoDeDados.swift */; };
+		1BEB09F01F817845005FC663 /* Gilroy-FREE in Resources */ = {isa = PBXBuildFile; fileRef = 1BEB09EE1F817845005FC663 /* Gilroy-FREE */; };
+		1BEB09F11F817845005FC663 /* Jaapokki-font-package-1.0 in Resources */ = {isa = PBXBuildFile; fileRef = 1BEB09EF1F817845005FC663 /* Jaapokki-font-package-1.0 */; };
 		EF2ED9351F7DC0DB00425E1C /* ActivitiesTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2ED9341F7DC0DB00425E1C /* ActivitiesTableviewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		1884E5EA1F7D7C6400ADA37F /* CulturalActivities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CulturalActivities.swift; sourceTree = "<group>"; };
 		1884E5EC1F7D7C8400ADA37F /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		1884E5EE1F7D862800ADA37F /* bancoDeDados.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bancoDeDados.swift; sourceTree = "<group>"; };
+		1BEB09EE1F817845005FC663 /* Gilroy-FREE */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Gilroy-FREE"; path = "../../../../../Volumes/NO NAME/if09 - Copia/Gilroy-FREE"; sourceTree = "<group>"; };
+		1BEB09EF1F817845005FC663 /* Jaapokki-font-package-1.0 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Jaapokki-font-package-1.0"; path = "../../../../../Volumes/NO NAME/if09 - Copia/Jaapokki-font-package-1.0"; sourceTree = "<group>"; };
 		EF2ED9341F7DC0DB00425E1C /* ActivitiesTableviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesTableviewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +90,8 @@
 			children = (
 				180DE8321F7EFB4E00221C99 /* ActivityPin.swift */,
 				EF2ED9341F7DC0DB00425E1C /* ActivitiesTableviewCell.swift */,
+				1BEB09EE1F817845005FC663 /* Gilroy-FREE */,
+				1BEB09EF1F817845005FC663 /* Jaapokki-font-package-1.0 */,
 				181565E91F7AC9340099C9C0 /* AppDelegate.swift */,
 				181566001F7AC9C90099C9C0 /* FirstViewController.swift */,
 				181566011F7AC9C90099C9C0 /* SelectIconsCollectionViewCell.swift */,
@@ -135,7 +141,7 @@
 				TargetAttributes = {
 					181565E51F7AC9340099C9C0 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = AUVGK4GFGB;
+						DevelopmentTeam = 9VN4S7M89W;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -171,9 +177,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BEB09F01F817845005FC663 /* Gilroy-FREE in Resources */,
 				181565FD1F7AC9660099C9C0 /* Main.storyboard in Resources */,
 				181565F41F7AC9340099C9C0 /* LaunchScreen.storyboard in Resources */,
 				181565F11F7AC9340099C9C0 /* Assets.xcassets in Resources */,
+				1BEB09F11F817845005FC663 /* Jaapokki-font-package-1.0 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,10 +325,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AUVGK4GFGB;
+				DEVELOPMENT_TEAM = 9VN4S7M89W;
 				INFOPLIST_FILE = Balaio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bepidinho.Balaio;
+				PRODUCT_BUNDLE_IDENTIFIER = balainho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -330,10 +338,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AUVGK4GFGB;
+				DEVELOPMENT_TEAM = 9VN4S7M89W;
 				INFOPLIST_FILE = Balaio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bepidinho.Balaio;
+				PRODUCT_BUNDLE_IDENTIFIER = balainho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

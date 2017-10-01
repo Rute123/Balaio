@@ -129,7 +129,7 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     if let annotation = annotation as? MKPointAnnotation {
       let pinWillBeAdd = MKAnnotationView(annotation: annotation,reuseIdentifier: "newPin")
-      pinWillBeAdd.image = escolhaDaTag.image
+        pinWillBeAdd.image = UIImage(named:"neutralPin")!
       pinWillBeAdd.canShowCallout = false
       
       return pinWillBeAdd
