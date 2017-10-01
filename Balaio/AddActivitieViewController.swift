@@ -56,7 +56,8 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   
     // mapaLocalizacao.isUserLocationVisible = false // error isUserLocationVisible is a get only property
     mapaLocalizacao.isPitchEnabled = false // perspectiva
-    
+   
+    makeNewPin()
   }
   
   
@@ -81,11 +82,12 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     
     if screenLoadFirst == true {
       
-      // Cria o pin do evento no mapa
-      let newPin = MKPointAnnotation()
-      newPin.coordinate = CLLocationCoordinate2D(latitude: locationNow!.coordinate.latitude, longitude: locationNow!.coordinate.longitude)
-      mapaLocalizacao.addAnnotation(newPin)
+//      // Cria o pin do evento no mapa
+//      let newPin = MKPointAnnotation()
+//      newPin.coordinate = CLLocationCoordinate2D(latitude: locationNow!.coordinate.latitude, longitude: locationNow!.coordinate.longitude)
+//      mapaLocalizacao.addAnnotation(newPin)
       
+      // da zoom
       let zoom: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
       let userLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locationNow!.coordinate.latitude, locationNow!.coordinate.longitude)
       let mapVisualArea: MKCoordinateRegion = MKCoordinateRegionMake(userLocation, zoom)
@@ -99,33 +101,66 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   }
 
 
-    // Actions
-    
-    @IBAction func escolhaDaTag(_ sender: UIButton) {
-        popview.isHidden = false
-    }
-    
-    //POPUP
-    @IBAction func celebrar(_ sender: UIButton) {
-        escolhaDaTag.image = celebrarTag.tagIconColor
-        popview.isHidden = true
-    }
-    @IBAction func contemplar(_ sender: UIButton) {
-        escolhaDaTag.image = contemplarTag.tagIconColor
-        popview.isHidden = true
-    }
-    @IBAction func colaborar(_ sender: UIButton) {
-        escolhaDaTag.image = colaborarTag.tagIconColor
-        popview.isHidden = true
-    }
-    @IBAction func praticar(_ sender: UIButton) {
-        escolhaDaTag.image = praticarTag.tagIconColor
-        popview.isHidden = true
-    }
+  // Actions
+  
+  @IBAction func escolhaDaTag(_ sender: UIButton) {
+    popview.isHidden = false
+  }
+  
+  //POPUP
+  @IBAction func celebrar(_ sender: UIButton) {
+    escolhaDaTag.image = celebrarTag.tagIconColor
+    mapaLocalizacao.tintColor = UIColor.red
+    popview.isHidden = true
+    // clearPin()
+    makeNewPin()
+  }
+  
+  @IBAction func contemplar(_ sender: UIButton) {
+    escolhaDaTag.image = contemplarTag.tagIconColor
+    mapaLocalizacao.tintColor = UIColor.cyan
+    popview.isHidden = true
+    // clearPin()
+    makeNewPin()
+  }
+  
+  @IBAction func colaborar(_ sender: UIButton) {
+    escolhaDaTag.image = colaborarTag.tagIconColor
+    mapaLocalizacao.tintColor = UIColor.purple
+    popview.isHidden = true
+    // clearPin()
+    makeNewPin()
+  }
+  
+  @IBAction func praticar(_ sender: UIButton) {
+    escolhaDaTag.image = praticarTag.tagIconColor
+    mapaLocalizacao.tintColor = UIColor.green
+    popview.isHidden = true
+    // clearPin()
+    makeNewPin()
+  }
   
   
   
-  // Novo Pin no mapa
+  // cria o pin
+  func makeNewPin() {
+    let newBornPin = MKPointAnnotation()
+    newBornPin.title = ""
+    newBornPin.coordinate = CLLocationCoordinate2D(latitude: mapaLocalizacao.userLocation.coordinate.latitude, longitude: mapaLocalizacao.userLocation.coordinate.longitude)
+  
+    mapaLocalizacao.addAnnotation(newBornPin)
+  }
+  
+  // limpa os pin do mapa
+  func clearPin() {
+    if let pin = self.mapaLocalizacao?.annotations {
+      mapaLocalizacao.removeAnnotation(pin as! MKAnnotation)
+    }
+  }
+  
+  
+  
+  // Mudar imagem do pin - chamada toda vez q um pin é criado
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     if let annotation = annotation as? MKPointAnnotation {
       let pinWillBeAdd = MKAnnotationView(annotation: annotation,reuseIdentifier: "newPin")
@@ -138,7 +173,6 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   }
   
   
-    
   // ENVIAR - append nova atividade no array
   @IBAction func enviarEventoProBancoDeDados(_ sender: UIButton) {
     
