@@ -17,7 +17,7 @@ var celebrarTag: Tag = Tag(tagName: "Celebração", tagIconColor: UIImage(named:
 
 var contemplarTag: Tag = Tag(tagName: "Exibição", tagIconColor: UIImage(named: "contemplarTag")!, tagIconColorName: "contemplarTag", tagIconGrayScale: UIImage(named: "celebrarTagPb")!, tagPin:UIImage(named:"contemplarPin")!)
 
-var colaborarTag: Tag = Tag(tagName: "Colaboração", tagIconColor: UIImage(named: "colaborarTag")!, tagIconColorName: "colaborarTag", tagIconGrayScale: UIImage(named: "colaborarTagPb")!,tagPin:UIImage(named:"colaborarPin")!)
+var colaborarTag: Tag = Tag(tagName: "Colaboração", tagIconColor: UIImage(named:"colaborarTag")!, tagIconColorName: "colaborarTag", tagIconGrayScale: UIImage(named: "colaborarTagPb")!,tagPin:UIImage(named:"colaborarPin")!)
 
 var praticarTag: Tag = Tag(tagName: "Prática", tagIconColor: UIImage(named: "praticarTag")!, tagIconColorName: "praticarTag", tagIconGrayScale: UIImage(named: "praticarTagPb")!,tagPin:UIImage(named:"praticarPin")!)
 
