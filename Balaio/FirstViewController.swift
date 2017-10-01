@@ -127,6 +127,8 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
       filtroDosPins.remove(at: indexPath.row)
       filtroDosPins.insert(deselectedTags[indexPath.row], at: indexPath.row)
       selectIcons.reloadData()
+      removePins()
+      refreshPins()
       print ("deselecionou")
       //
     } else {
@@ -134,22 +136,36 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
       filtroDosPins.remove(at: indexPath.row)
       filtroDosPins.insert(selectedTags[indexPath.row], at: indexPath.row)
       selectIcons.reloadData()
+      removePins()
+      refreshPins()
       print ("selecionou")
       //
     }
   }
   
   
+//  dai quando for botar o pin tu ve se o pin ta no array
+//  
+//  if o dado do pin que eu quero ta no array com as seleções {
+//    mapFirst.addAnnotation(actPin)
+//  }
+  
   
   // função pra fazer uma nova busca nos pins
   func refreshPins() {
     // Cria os pins de acordo com o bancoDeDados (local)
+    
     for atividade in bancoDeDados {
-      let actPin = ActivityPin(activity: atividade)
-      actPin.title = atividade.activitieName
-      actPin.coordinate = CLLocationCoordinate2D(latitude: atividade.location.latitude, longitude: atividade.location.longitude)
       
-      mapFirst.addAnnotation(actPin)
+      // need "file name" property from UIImage
+      if filtroDosPins.contains(atividade.activitieTag.tagIconColorName) {
+      
+        let actPin = ActivityPin(activity: atividade)
+        actPin.title = atividade.activitieName
+        actPin.coordinate = CLLocationCoordinate2D(latitude: atividade.location.latitude, longitude: atividade.location.longitude)
+      
+        mapFirst.addAnnotation(actPin)
+      }
       
       // pra depois comparar a hora de termino com a hora do telefone e retirar o evento do banco de dados
       //       let componentesDaHoraAtual: DateComponents = Calendar.current.dateComponents([.hour,.minute], from: Date())
