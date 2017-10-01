@@ -137,7 +137,7 @@
                                     <!--2017-09-25 17:37:58 +0000-->
                                 </date>
                             </datePicker>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zYB-xV-z3D">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYB-xV-z3D">
                                 <rect key="frame" x="35" y="288" width="305" height="305"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
@@ -191,7 +191,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rOY-Er-ImG">
                                         <rect key="frame" x="10" y="144" width="51" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="orange"/>
+                                        <state key="normal" image="colaborarTag"/>
                                         <connections>
                                             <action selector="colaborar:" destination="ffw-fY-jnR" eventType="touchUpInside" id="XxZ-6Y-Sox"/>
                                         </connections>
@@ -199,7 +199,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkK-5z-L7F">
                                         <rect key="frame" x="10" y="213" width="51" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="darkGreen"/>
+                                        <state key="normal" image="praticarTag"/>
                                         <connections>
                                             <action selector="praticar:" destination="ffw-fY-jnR" eventType="touchUpInside" id="UnS-JL-4zj"/>
                                         </connections>
@@ -235,7 +235,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EpW-bo-Von">
                                         <rect key="frame" x="10" y="74" width="51" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="darkBlue"/>
+                                        <state key="normal" image="contemplarTag"/>
                                         <connections>
                                             <action selector="contemplar:" destination="ffw-fY-jnR" eventType="touchUpInside" id="Gdi-ep-bkp"/>
                                         </connections>
@@ -243,7 +243,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCB-vb-aHn">
                                         <rect key="frame" x="10" y="4" width="51" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="red"/>
+                                        <state key="normal" image="celebrarTag"/>
                                         <connections>
                                             <action selector="celebrar:" destination="ffw-fY-jnR" eventType="touchUpInside" id="ocQ-3z-8r0"/>
                                         </connections>
@@ -444,14 +444,14 @@
     <resources>
         <image name="adicionar" width="120" height="120"/>
         <image name="brown" width="64" height="64"/>
-        <image name="darkBlue" width="64" height="64"/>
-        <image name="darkGreen" width="64" height="64"/>
+        <image name="celebrarTag" width="89" height="90"/>
+        <image name="colaborarTag" width="90" height="90"/>
+        <image name="contemplarTag" width="89" height="90"/>
         <image name="enviar" width="120" height="120"/>
         <image name="likeStar" width="120" height="120"/>
         <image name="mapRadius" width="743" height="729"/>
-        <image name="orange" width="64" height="64"/>
+        <image name="praticarTag" width="91" height="91"/>
         <image name="praticarTagPb" width="120" height="120"/>
-        <image name="red" width="64" height="64"/>
         <image name="refresh-1" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>

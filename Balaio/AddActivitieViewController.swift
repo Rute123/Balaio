@@ -107,19 +107,19 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     
     //POPUP
     @IBAction func celebrar(_ sender: UIButton) {
-        escolhaDaTag.image = UIImage(named: "red")
+        escolhaDaTag.image = UIImage(named: "celebrarTag")
         popview.isHidden = true
     }
     @IBAction func contemplar(_ sender: UIButton) {
-        escolhaDaTag.image = UIImage(named: "darkBlue")
+        escolhaDaTag.image = UIImage(named: "contemplarTag")
         popview.isHidden = true
     }
     @IBAction func colaborar(_ sender: UIButton) {
-        escolhaDaTag.image = UIImage(named: "orange")
+        escolhaDaTag.image = UIImage(named: "colaborarTag")
         popview.isHidden = true
     }
     @IBAction func praticar(_ sender: UIButton) {
-        escolhaDaTag.image = UIImage(named: "darkGreen")
+        escolhaDaTag.image = UIImage(named: "praticarTag")
         popview.isHidden = true
     }
     
