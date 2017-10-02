@@ -41,6 +41,9 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   var locationNow: CLLocation?
   
   var screenLoadFirst: Bool = true
+  
+  // pro append
+  var novoEvento = CulturalActivities()
  
   
   
@@ -121,6 +124,7 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     escolhaDaTag.image = celebrarTag.tagIconColor
     mapaLocalizacao.tintColor = UIColor.red
     newPinGambiarra.image = celebrarTag.tagPin
+    novoEvento.activitieTag = celebrarTag
     popview.isHidden = true
     // clearPin()
     // makeNewPin()
@@ -130,6 +134,7 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     escolhaDaTag.image = contemplarTag.tagIconColor
     mapaLocalizacao.tintColor = UIColor.cyan
     newPinGambiarra.image = contemplarTag.tagPin
+    novoEvento.activitieTag = contemplarTag
     popview.isHidden = true
     // clearPin()
     // makeNewPin()
@@ -139,6 +144,7 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     escolhaDaTag.image = colaborarTag.tagIconColor
     mapaLocalizacao.tintColor = UIColor.purple
     newPinGambiarra.image = colaborarTag.tagPin
+    novoEvento.activitieTag = colaborarTag
     popview.isHidden = true
     // clearPin()
     // makeNewPin()
@@ -148,6 +154,7 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     escolhaDaTag.image = praticarTag.tagIconColor
     mapaLocalizacao.tintColor = UIColor.green
     newPinGambiarra.image = praticarTag.tagPin
+    novoEvento.activitieTag = praticarTag
     popview.isHidden = true
     // clearPin()
     // makeNewPin()
@@ -194,11 +201,11 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     let minutoQueAcaba = componentesDoPicker.minute!
     // jeito de comparar comentado na função refreshPin()
     
-    let novoEvento = CulturalActivities()
+    // var novoEvento = CulturalActivities()
     
     novoEvento.activitieName = nomeEvento.text!
     novoEvento.shortComment = descricaoEvento.text!
-    novoEvento.activitieTag = celebrarTag // precisa de uma lógica pra pegar a tag escolhida
+    // novoEvento.activitieTag = celebrarTag // precisa de uma lógica pra pegar a tag escolhida
     novoEvento.endsAt = "Acaba de \(horaQueAcaba)h\(minutoQueAcaba)"
     novoEvento.location = (mapaLocalizacao.centerCoordinate)
     
