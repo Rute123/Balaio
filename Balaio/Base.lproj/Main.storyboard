@@ -220,7 +220,7 @@
                                     <action selector="escolhaDaTag:" destination="ffw-fY-jnR" eventType="touchUpInside" id="uIa-X2-Mcg"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RDh-Nx-nVE">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wait4Pin" translatesAutoresizingMaskIntoConstraints="NO" id="RDh-Nx-nVE">
                                 <rect key="frame" x="35" y="288" width="305" height="305"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -480,6 +480,7 @@
         <image name="praticarTag" width="91" height="91"/>
         <image name="praticarTagPb" width="120" height="120"/>
         <image name="refresh-1" width="79" height="79"/>
+        <image name="wait4Pin" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Dul-It-o8r"/>
