@@ -29,8 +29,8 @@ class ActivitiesTableviewCell: UITableViewCell {
   
     @IBAction func likeActivity(_ sender: UIButton) {
         
-        numberOfLikes += 1
-        hahaha.text = String(numberOfLikes)
+//        numberOfLikes += 1
+//        hahaha.text = String(numberOfLikes)
     }
     
     override func awakeFromNib() {
