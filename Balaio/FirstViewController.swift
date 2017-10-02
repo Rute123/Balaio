@@ -169,7 +169,6 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
   }
   
-  
   // função pra evitar sobescrever os pins no botão reload e pra eliminar eventos acabados
   func removePins() {
     if let pins = self.mapFirst?.annotations {
@@ -179,29 +178,17 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
   }
   
-  
-  
-  
-  
   // Função que chama a tela de informação quando um pin é tocado
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
     let viewController = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "openActivitieInfoPage") as! ActivitieInfoViewController
-    if let x = view.annotation {
+    
       viewController.selectedPin = view.annotation as! ActivityPin
       self.navigationController?.pushViewController(viewController, animated:true)
-    }
   }
-  
+
   
   // função pra colocar as imagens das tags nos pins (Castilho)
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-    
-//    // User Pin
-//    if annotation is MKUserLocation {
-//      let userPin = mapView.view(for: annotation) as! MKPinAnnotationView!
-//      userPin?.image = UIImage(named: "userPin")!
-//      return userPin
-//    }
     
     // Activities Pins
     if let annotation = annotation as? ActivityPin {
@@ -217,6 +204,13 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
 }
 
 
+
+
+// teste de castor
+//if let x = view.annotation {
+//  viewController.selectedPin = view.annotation as! ActivityPin
+//  self.navigationController?.pushViewController(viewController, animated:true)
+//}
 
 
 

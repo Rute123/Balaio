@@ -31,6 +31,10 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   
   @IBOutlet weak var mapaLocalizacao: MKMapView!
   
+  // imagem do pin por cima do mapa
+  @IBOutlet weak var newPinGambiarra: UIImageView!
+  
+  
   // constante pra usar na abertura do mapa
   var locationManagerAdd = CLLocationManager()
   
@@ -56,8 +60,9 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   
     // mapaLocalizacao.isUserLocationVisible = false // error isUserLocationVisible is a get only property
     mapaLocalizacao.isPitchEnabled = false // perspectiva
+    mapaLocalizacao.isScrollEnabled = false
    
-    makeNewPin()
+    // makeNewPin()
   }
   
   
@@ -78,6 +83,10 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   // Dá o zoom na localização do evento (a mesma do usuário, por enquanto)
   // tem um if que só roda o zoom quando a tela é carregado
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+    // trava o centro do mapa no usuário (sendo chamada só 1 vez aqui)
+    mapaLocalizacao.userTrackingMode = .follow
+    
     locationNow = locations[0]
     
     if screenLoadFirst == true {
@@ -111,47 +120,51 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   @IBAction func celebrar(_ sender: UIButton) {
     escolhaDaTag.image = celebrarTag.tagIconColor
     mapaLocalizacao.tintColor = UIColor.red
+    newPinGambiarra.image = celebrarTag.tagPin
     popview.isHidden = true
     // clearPin()
-    makeNewPin()
+    // makeNewPin()
   }
-  
+   
   @IBAction func contemplar(_ sender: UIButton) {
     escolhaDaTag.image = contemplarTag.tagIconColor
     mapaLocalizacao.tintColor = UIColor.cyan
+    newPinGambiarra.image = contemplarTag.tagPin
     popview.isHidden = true
     // clearPin()
-    makeNewPin()
+    // makeNewPin()
   }
   
   @IBAction func colaborar(_ sender: UIButton) {
     escolhaDaTag.image = colaborarTag.tagIconColor
     mapaLocalizacao.tintColor = UIColor.purple
+    newPinGambiarra.image = colaborarTag.tagPin
     popview.isHidden = true
     // clearPin()
-    makeNewPin()
+    // makeNewPin()
   }
   
   @IBAction func praticar(_ sender: UIButton) {
     escolhaDaTag.image = praticarTag.tagIconColor
     mapaLocalizacao.tintColor = UIColor.green
+    newPinGambiarra.image = praticarTag.tagPin
     popview.isHidden = true
     // clearPin()
-    makeNewPin()
+    // makeNewPin()
   }
   
   
   
-  // cria o pin
-  func makeNewPin() {
-    let newBornPin = MKPointAnnotation()
-    newBornPin.title = ""
-    newBornPin.coordinate = CLLocationCoordinate2D(latitude: mapaLocalizacao.userLocation.coordinate.latitude, longitude: mapaLocalizacao.userLocation.coordinate.longitude)
+//  // cria o pin
+//  func makeNewPin() {
+//    let newBornPin = MKPointAnnotation()
+//    newBornPin.title = ""
+//    newBornPin.coordinate = CLLocationCoordinate2D(latitude: mapaLocalizacao.userLocation.coordinate.latitude, longitude: mapaLocalizacao.userLocation.coordinate.longitude)
+//  
+//    mapaLocalizacao.addAnnotation(newBornPin)
+//  }
   
-    mapaLocalizacao.addAnnotation(newBornPin)
-  }
-  
-  // limpa os pin do mapa
+  // limpa os pin do mapa (sem uso)
   func clearPin() {
     if let pin = self.mapaLocalizacao?.annotations {
       mapaLocalizacao.removeAnnotation(pin as! MKAnnotation)
@@ -181,14 +194,13 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     let minutoQueAcaba = componentesDoPicker.minute!
     // jeito de comparar comentado na função refreshPin()
     
-    
     let novoEvento = CulturalActivities()
     
     novoEvento.activitieName = nomeEvento.text!
     novoEvento.shortComment = descricaoEvento.text!
     novoEvento.activitieTag = celebrarTag // precisa de uma lógica pra pegar a tag escolhida
     novoEvento.endsAt = "Acaba de \(horaQueAcaba)h\(minutoQueAcaba)min"
-    novoEvento.location = (locationNow?.coordinate)!
+    novoEvento.location = (mapaLocalizacao.centerCoordinate)
     
     // o init que vai ser usado: (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String)
     
