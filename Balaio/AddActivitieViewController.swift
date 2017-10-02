@@ -25,6 +25,8 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   
   @IBOutlet weak var escolhaDaTag: UIImageView!
   
+  @IBOutlet weak var escolhaATagLabel: UILabel!
+    
   @IBOutlet weak var quandoAcabaLabel: UILabel!
   
   @IBOutlet weak var quandoAcabaDataPicker: UIDatePicker!
