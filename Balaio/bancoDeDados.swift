@@ -24,11 +24,15 @@ var praticarTag: Tag = Tag(tagName: "Prática", tagIconColor: UIImage(named: "pr
 
 
 // array local de CulturalActivities
-var bancoDeDados: [CulturalActivities] = [CulturalActivities(activitiesName: "Feirinha no CAC", location: CLLocationCoordinate2DMake(-8.050749, -34.9534873), endsAt: "Acaba de 17h", activitieTag: contemplarTag, shortComment: "Barraquinhas vendendo bolsa, coisa pra cabelo, no precinho XD", likes: 0, activitieIsVisible: true, activitieExists: true),
+var bancoDeDados: [CulturalActivities] = [CulturalActivities(activitiesName: "Feirinha no CAC", location: CLLocationCoordinate2DMake(-8.050749, -34.9534873), endsAt: "Acaba de 17h", activitieTag: contemplarTag, shortComment: "Barraquinhas com acessórios caseiros", likes: 0, activitieIsVisible: true, activitieExists: true),
   
-  CulturalActivities(activitiesName: "Party Hard na casa de Maysa", location:CLLocationCoordinate2DMake(-8.035594, -34.9441419), endsAt: "Acaba de 20h30", activitieTag: colaborarTag, shortComment: "A gente entregou o app, bora comemorar!!!"),
+  CulturalActivities(activitiesName: "Open house party", location:CLLocationCoordinate2DMake(-8.035594, -34.9441419), endsAt: "Acaba de 20h30", activitieTag: colaborarTag, shortComment: "Festa na casa de Mariana, tragam sua cerveja"),
   
-  CulturalActivities(activitiesName: "Calourada de arquitetura na concha", location: CLLocationCoordinate2DMake(-8.0525066, -34.9524539), endsAt: "Acaba de 23h", activitieTag: celebrarTag, shortComment: "chama o ubi q eu to beba"),
+  CulturalActivities(activitiesName: "Calourada de arquitetura na concha", location: CLLocationCoordinate2DMake(-8.0525066, -34.9524539), endsAt: "Acaba de 23h", activitieTag: celebrarTag, shortComment: "Kelvis, logo mais"),
   
-  CulturalActivities(activitiesName: "Oficina de Encadernação Artesanal", location: CLLocationCoordinate2DMake(-8.0512811, -34.9542569), endsAt: "Acaba de 11h30", activitieTag: praticarTag, shortComment: "Rolando na sala 5 do dDesign, vai ter sorteio")
+  CulturalActivities(activitiesName: "Oficina de Encadernação Artesanal", location: CLLocationCoordinate2DMake(-8.0512811, -34.9542569), endsAt: "Acaba de 11h30", activitieTag: praticarTag, shortComment: "Rolando na sala 5 do dDesign, vai ter sorteio"),
+  
+  CulturalActivities(activitiesName: "Horta comunitária", location: CLLocationCoordinate2DMake(-8.0570413, -34.9571922), endsAt: "Acaba de 11h30", activitieTag: colaborarTag, shortComment:"Vamos começar a plantar!"),
+  CulturalActivities(activitiesName: "Flash day!", location: CLLocationCoordinate2DMake(-8.0575947, -34.9526536), endsAt: "Acaba de 19h30", activitieTag: contemplarTag, shortComment:"Tattos da hora!"),
+  CulturalActivities(activitiesName: "Aulas de capoeira abertas", location: CLLocationCoordinate2DMake(-8.0575947, -34.9526536), endsAt: "Acaba de 17h30", activitieTag: praticarTag, shortComment:"Hoje aula com convidados"),
 ]
