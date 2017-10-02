@@ -135,7 +135,7 @@
 				TargetAttributes = {
 					181565E51F7AC9340099C9C0 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 9VN4S7M89W;
+						DevelopmentTeam = AUVGK4GFGB;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -317,10 +317,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9VN4S7M89W;
+				DEVELOPMENT_TEAM = AUVGK4GFGB;
 				INFOPLIST_FILE = Balaio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = balainho;
+				PRODUCT_BUNDLE_IDENTIFIER = balaio.bepidinho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -330,10 +330,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9VN4S7M89W;
+				DEVELOPMENT_TEAM = AUVGK4GFGB;
 				INFOPLIST_FILE = Balaio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = balainho;
+				PRODUCT_BUNDLE_IDENTIFIER = balaio.bepidinho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -87,9 +87,10 @@ class ActivitieInfoViewController: UIViewController, UITableViewDelegate, MKMapV
     let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellID") as! ActivitiesTableviewCell
     
     cell.nameActivities.text = selectedPin.activity.activitieName
+    // cell.nameActivities.textColor = selectedPin.activity.activitieTag.tagColor
     cell.hourActivities.text = selectedPin.activity.endsAt
     cell.tagImageActivities.image = selectedPin.activity.activitieTag.tagIconColor
-    cell.descriptionActivities.text = selectedPin.activity.commentLabel
+    // cell.descriptionActivities.text = selectedPin.activity.commentLabel
     cell.textActivities.text = selectedPin.activity.shortComment
     
     return cell

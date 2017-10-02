@@ -13,13 +13,13 @@ import UIKit
 
 
 // As 4 tags - separadas ou num array??
-var celebrarTag: Tag = Tag(tagName: "Celebração", tagIconColor: UIImage(named: "celebrarTag")!, tagIconColorName: "celebrarTag", tagIconGrayScale: UIImage(named: "celebrarTagPb")!,tagPin:UIImage(named:"celebrarPin")!)
+var celebrarTag: Tag = Tag(tagName: "Celebração", tagIconColor: UIImage(named: "celebrarTag")!, tagIconColorName: "celebrarTag", tagIconGrayScale: UIImage(named: "celebrarTagPb")!,tagPin:UIImage(named:"celebrarPin")!, tagColor: UIColor(colorLiteralRed: 206, green: 77, blue: 78, alpha: 1))
 
-var contemplarTag: Tag = Tag(tagName: "Exibição", tagIconColor: UIImage(named: "contemplarTag")!, tagIconColorName: "contemplarTag", tagIconGrayScale: UIImage(named: "celebrarTagPb")!, tagPin:UIImage(named:"contemplarPin")!)
+var contemplarTag: Tag = Tag(tagName: "Exibição", tagIconColor: UIImage(named: "contemplarTag")!, tagIconColorName: "contemplarTag", tagIconGrayScale: UIImage(named: "celebrarTagPb")!, tagPin:UIImage(named:"contemplarPin")!, tagColor: UIColor(colorLiteralRed: 41, green: 206, blue: 182, alpha: 1))
 
-var colaborarTag: Tag = Tag(tagName: "Colaboração", tagIconColor: UIImage(named:"colaborarTag")!, tagIconColorName: "colaborarTag", tagIconGrayScale: UIImage(named: "colaborarTagPb")!,tagPin:UIImage(named:"colaborarPin")!)
+var colaborarTag: Tag = Tag(tagName: "Colaboração", tagIconColor: UIImage(named:"colaborarTag")!, tagIconColorName: "colaborarTag", tagIconGrayScale: UIImage(named: "colaborarTagPb")!,tagPin:UIImage(named:"colaborarPin")!, tagColor: UIColor(colorLiteralRed: 175, green: 70, blue: 135, alpha: 1))
 
-var praticarTag: Tag = Tag(tagName: "Prática", tagIconColor: UIImage(named: "praticarTag")!, tagIconColorName: "praticarTag", tagIconGrayScale: UIImage(named: "praticarTagPb")!,tagPin:UIImage(named:"praticarPin")!)
+var praticarTag: Tag = Tag(tagName: "Prática", tagIconColor: UIImage(named: "praticarTag")!, tagIconColorName: "praticarTag", tagIconGrayScale: UIImage(named: "praticarTagPb")!,tagPin:UIImage(named:"praticarPin")!, tagColor: UIColor(colorLiteralRed: 132, green: 183, blue: 34, alpha: 1))
 
 
 

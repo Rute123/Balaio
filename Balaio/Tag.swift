@@ -16,24 +16,27 @@ class Tag {
   var tagIconColorName: String
   var tagIconGrayScale: UIImage
   var tagDescription: String = ""
-  var tagPin:UIImage
+  var tagPin: UIImage
+  var tagColor: UIColor
   
   // init com a descrição
-  init (tagName: String, tagIconColor: UIImage, tagIconColorName: String, tagIconGrayScale: UIImage, tagDescription: String, tagPin:UIImage) {
+  init (tagName: String, tagIconColor: UIImage, tagIconColorName: String, tagIconGrayScale: UIImage, tagDescription: String, tagPin:UIImage, tagColor: UIColor) {
     self.tagName = tagName
     self.tagIconColor = tagIconColor
     self.tagIconColorName = tagIconColorName
     self.tagIconGrayScale = tagIconGrayScale
     self.tagDescription = tagDescription
     self.tagPin = tagPin
+    self.tagColor = tagColor
   }
   
   // init sem a descrição (ela é um string vazio)
-  init (tagName: String, tagIconColor: UIImage, tagIconColorName: String, tagIconGrayScale: UIImage, tagPin:UIImage) {
+  init (tagName: String, tagIconColor: UIImage, tagIconColorName: String, tagIconGrayScale: UIImage, tagPin:UIImage, tagColor: UIColor) {
     self.tagName = tagName
     self.tagIconColor = tagIconColor
     self.tagIconColorName = tagIconColorName
     self.tagIconGrayScale = tagIconGrayScale
     self.tagPin = tagPin
+    self.tagColor = tagColor
   }
 }

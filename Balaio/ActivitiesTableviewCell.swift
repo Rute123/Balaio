@@ -20,7 +20,7 @@ class ActivitiesTableviewCell: UITableViewCell {
   @IBOutlet weak var tagImageActivities: UIImageView!
   
   
-  @IBOutlet weak var descriptionActivities: UILabel!
+  // @IBOutlet weak var descriptionActivities: UILabel!
   
   @IBOutlet weak var textActivities: UILabel!
   

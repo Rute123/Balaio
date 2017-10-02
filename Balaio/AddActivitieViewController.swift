@@ -60,7 +60,7 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   
     // mapaLocalizacao.isUserLocationVisible = false // error isUserLocationVisible is a get only property
     mapaLocalizacao.isPitchEnabled = false // perspectiva
-    mapaLocalizacao.isScrollEnabled = false
+    // mapaLocalizacao.isScrollEnabled = false
    
     // makeNewPin()
   }
@@ -85,7 +85,7 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
     // trava o centro do mapa no usuário (sendo chamada só 1 vez aqui)
-    mapaLocalizacao.userTrackingMode = .follow
+    // mapaLocalizacao.userTrackingMode = .follow
     
     locationNow = locations[0]
     
@@ -199,7 +199,7 @@ class AddActivitieViewController: UIViewController, UITextFieldDelegate, MKMapVi
     novoEvento.activitieName = nomeEvento.text!
     novoEvento.shortComment = descricaoEvento.text!
     novoEvento.activitieTag = celebrarTag // precisa de uma lógica pra pegar a tag escolhida
-    novoEvento.endsAt = "Acaba de \(horaQueAcaba)h\(minutoQueAcaba)min"
+    novoEvento.endsAt = "Acaba de \(horaQueAcaba)h\(minutoQueAcaba)"
     novoEvento.location = (mapaLocalizacao.centerCoordinate)
     
     // o init que vai ser usado: (activitiesName: String, location: CLLocationCoordinate2D, endsAt: String, tag: Tag, shortComment: String)
